@@ -6,7 +6,7 @@ namespace DAL
 {
     public class CConexionBD
     {
-        private string cadenaConectar = "Conexion a DB";
+        private string cadenaConectar = "Server=tcp:srvteleworkmanager.database.windows.net,1433;Initial Catalog=teleworkmanager;Persist Security Info=False;User ID=general;Password=Uca2026#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public void Ejecutar(string sentencia)
         {
