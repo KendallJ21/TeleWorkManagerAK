@@ -11,7 +11,10 @@ namespace TeleWorkManager.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Convert.ToBoolean( Session["LoginOK"]))
+            {
+                Response.Redirect("~/Pages/LoginPage.aspx");
+            }
         }
     }
 }

@@ -17,7 +17,7 @@
         <div class="card login-card p-4" style="width:400px;">
             <h3 class="text-center title mb-4">
                 <i class="bi bi-house-door-fill"></i>
-                TeleWorkManager
+               TeleWorkManager
             </h3>
 
             <div class="text-center mb-3">
@@ -57,13 +57,13 @@
             <asp:Button ID="btnLogin"
                 runat="server"
                 CssClass="btn btn-custom w-100"
-                Text="Iniciar Sesión" />
+                Text="Iniciar Sesión" OnClick="btnLogin_Click" />
 
             <div class="text-center mt-3 letra">
                 <small>
                     <i class="bi bi-person-plus"></i>
                     ¿No tienes cuenta?
-                    <a href="UserRegistrationPage.aspx">Regístrate</a>
+                     <a href="UserRegistrationPage.aspx">Regístrate</a>
                 </small>
             </div>
         </div>
