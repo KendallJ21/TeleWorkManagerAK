@@ -1,0 +1,101 @@
+﻿body {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* Tarjetas */
+
+.login-card {
+    background-color: #222831;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Titulo */
+
+.title {
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.letra {
+    color: #eeeeee;
+}
+
+/* Botones */
+
+.btn-custom {
+    background-color: #00adb5;
+    color: white;
+    border: none;
+}
+
+    .btn-custom:hover {
+        background-color: #00adb5;
+        color: white;
+    }
+
+/* Iconos */
+
+.icon-dashboard {
+    font-size: 40px;
+    color: #00adb5;
+}
+
+/* Cards resumen */
+
+.card-dashboard {
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Calendario */
+
+.calendar {
+    color: #eeeeee;
+}
+
+    .calendar td,
+    .calendar th {
+        color: #eeeeee;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.telework {
+    background-color: #00adb5 !important;
+    border-radius: 50%;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Alertas */
+
+.alert {
+    border: none;
+}
+
+.progress {
+    background: #393e46;
+}
+
+.progress-bar {
+    background: #00adb5;
+}
+
+.calendar-full {
+    width: 100% !important;
+}
+
+    .calendar-full table {
+        width: 100% !important;
+    }
+
+    .calendar-full td,
+    .calendar-full th {
+        height: 65px;
+        text-align: center;
+    }

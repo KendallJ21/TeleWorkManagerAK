@@ -67,11 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\DashboardEmployeePage.css" />
     <Content Include="CSS\LoginPage.css" />
+    <Content Include="Pages\DashboardEmployeePage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\DashboardEmployeePage.aspx.cs">
+      <DependentUpon>DashboardEmployeePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DashboardEmployeePage.aspx.designer.cs">
+      <DependentUpon>DashboardEmployeePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
