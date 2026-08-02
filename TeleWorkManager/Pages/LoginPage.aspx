@@ -14,7 +14,7 @@
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
     <form id="form1" runat="server">
-        <div class="card login-card p-4" style="width:400px;">
+        <div class="card login-card p-5" style="width:600px;">
             <h3 class="text-center title mb-4">
                 <i class="bi bi-house-door-fill"></i>
                TeleWorkManager
@@ -62,8 +62,8 @@
             <div class="text-center mt-3 letra">
                 <small>
                     <i class="bi bi-person-plus"></i>
-                    ¿No tienes cuenta?
-                     <a href="UserRegistrationPage.aspx">Regístrate</a>
+                    ¿Olvidaste tu contraseñna?
+                     <a href="UserRegistrationPage.aspx">Presiona para recuperar</a>
                 </small>
             </div>
         </div>

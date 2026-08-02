@@ -19,6 +19,7 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
       />
 
       <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
+           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    </head>
 
    <body>
@@ -33,9 +34,10 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
                   TeleWork Manager
                </h1>
 
-               <h4>Dashboard - Kendall</h4>
+               <h4><asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
+                <a href="LoginPage.aspx">Cerrar Sesión</a>
             </div>
-
+            
             <!-- RESUMEN -->
 
             <div class="row g-4">
@@ -45,9 +47,9 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
 
                      <h5 class="letra mt-3">Días asignados</h5>
 
-                     <h1 class="title">8</h1>
+                     <h1 class="title"><asp:Label ID="lblDiasTeletrabajo" runat="server" Text=""></asp:Label></h1>
 
-                     <p class="letra">Julio 2026</p>
+                     <p class="letra"><asp:Label ID="lblMesAnnoTeletrabajo" runat="server" Text=""></asp:Label></p>
                   </div>
                </div>
 
@@ -55,11 +57,11 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
                   <div class="card-dashboard text-center">
                      <i class="bi bi-calendar-event icon-dashboard"></i>
 
-                     <h5 class="letra mt-3">Próximos días</h5>
+                     <h5 class="letra mt-3">Próximo día</h5>
 
-                     <h1 class="title">3</h1>
+                     <h1 class="title"><asp:Label ID="lblProximoDia" runat="server" Text=""></asp:Label></h1>
 
-                     <p class="letra">Agosto</p>
+                     <p class="letra"><asp:Label ID="lblProximoMes" runat="server" Text=""></asp:Label></p>
                   </div>
                </div>
 
@@ -69,9 +71,11 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
 
                      <h5 class="letra mt-3">Solicitudes</h5>
 
-                     <h1 class="title">2</h1>
+                     <h1 class="title"><asp:Label ID="lblCantidadSolicitudes" runat="server" Text=""></asp:Label></h1>
 
                      <span class="badge bg-warning">Pendientes </span>
+              
+                      
                   </div>
                </div>
 
@@ -81,27 +85,16 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
 
                      <h5 class="letra mt-3">Notificaciones</h5>
 
-                     <h1 class="title">4</h1>
+                     <h1 class="title"><asp:Label ID="lblCantidadNotificaciones" runat="server" Text=""></asp:Label></h1>
 
                      <span class="badge bg-success">Nuevas </span>
+  
                   </div>
                </div>
             </div>
 
             <br />
 
-            <!-- RESUMEN -->
-
-            <div class="login-card p-4">
-               <h4 class="title">Resumen mensual</h4>
-
-               <p class="letra">Días utilizados: 8 / 12</p>
-
-               <div class="progress">
-                  <div class="progress-bar" style="width: 67%">67%</div>
-               </div>
-            </div>
-            <br />
             <div class="login-card p-4">
                <h4 class="title mb-4">
                   <i class="bi bi-calendar-check"></i>
@@ -112,7 +105,7 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
                   <!-- Calendario -->
                   <div class="col-lg-7">
                      <asp:Calendar
-                        ID="Calendar1"
+                        ID="clrCalendario"
                         runat="server"
                         CssClass="calendar-full"
                         BackColor="White"
@@ -124,7 +117,7 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
                         ForeColor="Black"
                         Width="100%"
                         Height="350px"
-                        NextPrevFormat="ShortMonth"
+                        NextPrevFormat="ShortMonth" OnSelectionChanged="clrCalendario_SelectionChanged"
                      >
                         <DayHeaderStyle
                            Font-Bold="True"
@@ -185,32 +178,19 @@ Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
                         placeholder="Ingrese el motivo de la solicitud..."
                      >
                      </asp:TextBox>
-
-                     <label class="form-label letra"> Observaciones </label>
-
-                     <asp:TextBox
-                        ID="txtObservacion"
-                        runat="server"
-                        CssClass="form-control mb-4"
-                        TextMode="MultiLine"
-                        Rows="3"
-                        placeholder="Observaciones adicionales (opcional)"
-                     >
-                     </asp:TextBox>
-
                      <div class="d-grid gap-2">
                         <asp:Button
                            ID="btnSolicitar"
                            runat="server"
                            Text="Enviar Solicitud"
-                           CssClass="btn btn-custom btn-lg"
+                           CssClass="btn btn-custom btn-lg" OnClick="btnSolicitar_Click"
                         />
 
                         <asp:Button
                            ID="btnLimpiar"
                            runat="server"
                            Text="Limpiar"
-                           CssClass="btn btn-outline-light"
+                           CssClass="btn btn-outline-light" OnClick="btnLimpiar_Click"
                         />
                      </div>
                   </div>
