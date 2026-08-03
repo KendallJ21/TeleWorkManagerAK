@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRptDiasTeletrabajo.cs" />
     <Compile Include="CLoginENT.cs" />
     <Compile Include="CSolicitudENT.cs" />
+    <Compile Include="CSolicitudesENT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
