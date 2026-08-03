@@ -2,6 +2,7 @@
 using ENT;
 using System;
 using System.Globalization;
+using System.Web.UI;
 
 namespace TeleWorkManager.Pages
 {
@@ -10,22 +11,26 @@ namespace TeleWorkManager.Pages
         private CDashboardEmployeeBLL  cDashboardEmployeeBLL = new CDashboardEmployeeBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Convert.ToBoolean(Session["LoginOK"]))
+            if (!IsPostBack)
             {
-                Response.Redirect("~/Pages/LoginPage.aspx");
+                if (!Convert.ToBoolean(Session["LoginOK"]))
+                {
+                    Response.Redirect("~/Pages/LoginPage.aspx");
+                }
+                lblBienvenida.Text = "Dashboard - " + Session["Nombre"].ToString();
+                ObtenerDatosDíasAsignados();
+                ObtenerProximoDiaTeletrabajo();
+                ObtenerCantidadSolicitudes();
+                ObtenerNotificaciones();
+                clrCalendario.SelectedDate = DateTime.Today;
+                clrCalendario.VisibleDate = DateTime.Today;
             }
-            lblBienvenida.Text = "Dashboard - " + Session["Nombre"].ToString();
-            ObtenerDatosDíasAsignados();
-            ObtenerProximoDiaTeletrabajo();
-            ObtenerCantidadSolicitudes();
-            ObtenerNotificaciones();
+            
         }
-
         protected void clrCalendario_SelectionChanged(object sender, EventArgs e)
         {
             txtFecha.Text = clrCalendario.SelectedDate.ToString("dd/MM/yyyy");
         }
-
         protected void btnSolicitar_Click(object sender, EventArgs e)
         {
 
@@ -85,6 +90,53 @@ namespace TeleWorkManager.Pages
         {
             LimpiarCampos();
         }
+        protected void clrCalendario_DayRender(object sender, System.Web.UI.WebControls.DayRenderEventArgs e)
+        {
+            DateTime hoy = DateTime.Today;
+
+            if (e.Day.Date < hoy)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.ForeColor = System.Drawing.Color.Gray;
+                e.Cell.BackColor = System.Drawing.Color.LightGray;
+            }
+
+        }
+
+        protected void btnRptDiasTele_Click(object sender, EventArgs e)
+        {
+            RptDiasTele.DataSource = cDashboardEmployeeBLL.ObtenerDiasTeletrabajo(Convert.ToInt32(Session["EmpleadoID"]));
+            RptDiasTele.DataBind();
+
+            string script = @"
+                            var modal = new bootstrap.Modal(document.getElementById('ModalRptDiasTele'));
+                            modal.show();";
+
+            ScriptManager.RegisterStartupScript(
+                this,
+                this.GetType(),
+                "MostrarModal",
+                script,
+                true);
+        }
+
+        protected void btnRptSolicitudes_Click(object sender, EventArgs e)
+        {
+            RptSolicitudes.DataSource = cDashboardEmployeeBLL.ObtenerSolicitudesPendientes(Convert.ToInt32(Session["EmpleadoID"]));
+            RptSolicitudes.DataBind();
+
+            string script = @"
+                            var modal = new bootstrap.Modal(document.getElementById('ModalSolicitudes'));
+                            modal.show();";
+
+            ScriptManager.RegisterStartupScript(
+                this,
+                this.GetType(),
+                "MostrarModal",
+                script,
+                true);
+        }
+
 
         #region Métodos
         public void ObtenerDatosDíasAsignados()
@@ -126,8 +178,12 @@ namespace TeleWorkManager.Pages
         }
 
 
+
+
+
+
         #endregion
 
-      
+
     }
 }

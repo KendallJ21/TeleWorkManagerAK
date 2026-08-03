@@ -33,6 +33,15 @@ namespace TeleWorkManager.Pages
         protected global::System.Web.UI.WebControls.Label lblBienvenida;
 
         /// <summary>
+        /// Control btnRptDiasTele.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnRptDiasTele;
+
+        /// <summary>
         /// Control lblDiasTeletrabajo.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace TeleWorkManager.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProximoMes;
+
+        /// <summary>
+        /// Control btnRptSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnRptSolicitudes;
 
         /// <summary>
         /// Control lblCantidadSolicitudes.
@@ -130,5 +148,23 @@ namespace TeleWorkManager.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
+
+        /// <summary>
+        /// Control RptDiasTele.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RptDiasTele;
+
+        /// <summary>
+        /// Control RptSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RptSolicitudes;
     }
 }
