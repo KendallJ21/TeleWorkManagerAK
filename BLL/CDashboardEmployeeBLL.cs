@@ -76,7 +76,37 @@ namespace BLL
         
             return cRptDiasTeletrabajo;
         }
+        public List<CNotificacionesENT> ObtenerNotificaciones(int EmpleadoID)
+        {
+            vSQL = @"SELECT [NotificacionID]
+                      ,[Titulo]
+                      ,[Mensaje]
+                      ,[Fecha]
+                  FROM [dbo].[Notificaciones] 
+                  WHERE EmpleadoID=" + EmpleadoID + " ORDER BY Fecha DESC";
 
+            List<CNotificacionesENT> cNotificaciones = new List<CNotificacionesENT>();
+            DataSet response = cConexionBD.mObtenerDatos(vSQL);
+
+            foreach (DataTable table in response.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    CNotificacionesENT c = new CNotificacionesENT();
+
+                    c.NotificacionID = Convert.ToInt32(row["NotificacionID"]);
+                    c.Titulo = row["Titulo"].ToString();
+                    c.Mensaje = row["Mensaje"].ToString();
+                    c.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    cNotificaciones.Add(c);
+
+                }
+            }
+            vSQL = @"Update [Notificaciones] SET Leida=1 WHERE EmpleadoID="+EmpleadoID+" AND Leida=0";
+            cConexionBD.Ejecutar(vSQL);
+
+            return cNotificaciones;
+        }
         public List<CSolicitudesENT> ObtenerSolicitudesPendientes(int EmpleadoID)
         {
             vSQL = @"SELECT 

@@ -137,7 +137,27 @@ namespace TeleWorkManager.Pages
                 script,
                 true);
         }
-        
+
+        protected void btnNotificaciones_Click(object sender, EventArgs e)
+        {
+            RptNotificaciones.DataSource = cDashboardEmployeeBLL.ObtenerNotificaciones(Convert.ToInt32(Session["EmpleadoID"]));
+            RptNotificaciones.DataBind();
+
+            lblCantidadNotificaciones.Text= cDashboardEmployeeBLL.  (Convert.ToInt32(Session["EmpleadoID"]));
+
+            string script = @"
+                            var modal = new bootstrap.Modal(document.getElementById('ModalNotificaciones'));
+                            modal.show();";
+            
+            ScriptManager.RegisterStartupScript(
+                this,
+                this.GetType(),
+                "MostrarModal",
+                script,
+                true);
+
+        }
+
         #region Métodos
         public void ObtenerDatosDíasAsignados()
         {
@@ -178,5 +198,7 @@ namespace TeleWorkManager.Pages
             clrCalendario.SelectedDate = DateTime.Now;
         }
         #endregion
+
+      
     }
 }
