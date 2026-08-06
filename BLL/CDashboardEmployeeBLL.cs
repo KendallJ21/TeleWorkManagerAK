@@ -36,7 +36,7 @@ namespace BLL
 
         public string ObtenerCantidadSolicitudes(int EmpleadoID)
         {
-            vSQL = @"SELECT COUNT(1) FROM SolicitudesTeletrabajo WHERE EstadoID=1 AND EmpleadoID= "+EmpleadoID;
+            vSQL = @"SELECT COUNT(1) FROM SolicitudesTeletrabajo WHERE EstadoID='Pendiente' AND EmpleadoID= "+EmpleadoID;
 
             return cConexionBD.mObtenerDato(vSQL);
         }
@@ -60,6 +60,7 @@ namespace BLL
             List< CRptDiasTeletrabajo> cRptDiasTeletrabajo = new List<CRptDiasTeletrabajo>();
             
             DataSet response = cConexionBD.mObtenerDatos(vSQL);
+
             foreach (DataTable table in response.Tables)
             {
                 foreach (DataRow row in table.Rows)
@@ -75,6 +76,7 @@ namespace BLL
         
             return cRptDiasTeletrabajo;
         }
+
         public List<CSolicitudesENT> ObtenerSolicitudesPendientes(int EmpleadoID)
         {
             vSQL = @"SELECT 
@@ -83,13 +85,14 @@ namespace BLL
                           [FechaTeletrabajo],
                           [Motivo]
                     FROM [dbo].[SolicitudesTeletrabajo]
-                    WHERE EstadoID = 1
+                    WHERE EstadoID = 'Pendiente'
                       AND YEAR(FechaSolicitud) = YEAR(GETDATE())
                       AND MONTH(FechaSolicitud) = MONTH(GETDATE())
                       AND EmpleadoID = "+EmpleadoID;
-            List<CSolicitudesENT> cSolicitudes = new List<CSolicitudesENT>();
 
+            List<CSolicitudesENT> cSolicitudes = new List<CSolicitudesENT>();
             DataSet response = cConexionBD.mObtenerDatos(vSQL);
+
             foreach (DataTable table in response.Tables)
             {
                 foreach (DataRow row in table.Rows)

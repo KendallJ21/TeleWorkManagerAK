@@ -14,16 +14,16 @@
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
     <form id="form1" runat="server">
-        <div class="card login-card p-5" style="width:600px;">
+        <div class="card login-card p-5" style="width: 600px;">
             <h3 class="text-center title mb-4">
                 <i class="bi bi-house-door-fill"></i>
-               TeleWorkManager
+                TeleWorkManager
             </h3>
 
             <div class="text-center mb-3">
                 <img src="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg"
                     class="img-fluid rounded shadow"
-                    style="max-width:120px;" />
+                    style="max-width: 120px;" />
             </div>
 
             <div class="mb-3">

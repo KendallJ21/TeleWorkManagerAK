@@ -9,6 +9,7 @@ namespace TeleWorkManager.Pages
     public partial class DashboardEmployeePage : System.Web.UI.Page
     {
         private CDashboardEmployeeBLL  cDashboardEmployeeBLL = new CDashboardEmployeeBLL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -17,23 +18,26 @@ namespace TeleWorkManager.Pages
                 {
                     Response.Redirect("~/Pages/LoginPage.aspx");
                 }
+
                 lblBienvenida.Text = "Dashboard - " + Session["Nombre"].ToString();
+
                 ObtenerDatosDíasAsignados();
                 ObtenerProximoDiaTeletrabajo();
                 ObtenerCantidadSolicitudes();
                 ObtenerNotificaciones();
+
                 clrCalendario.SelectedDate = DateTime.Today;
                 clrCalendario.VisibleDate = DateTime.Today;
-            }
-            
+            }   
         }
+
         protected void clrCalendario_SelectionChanged(object sender, EventArgs e)
         {
             txtFecha.Text = clrCalendario.SelectedDate.ToString("dd/MM/yyyy");
         }
+       
         protected void btnSolicitar_Click(object sender, EventArgs e)
         {
-
             if (txtFecha.Text==string.Empty || txtMotivo.Text==string.Empty)
             {
                 string script = @"
@@ -45,10 +49,8 @@ namespace TeleWorkManager.Pages
                                 });";
 
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
-
             }
             else {
-
                 CSolicitudENT cSolicitudENT = new CSolicitudENT()
                 {
                     EmpleadoID = Convert.ToInt32(Session["EmpleadoID"]),
@@ -60,6 +62,7 @@ namespace TeleWorkManager.Pages
                 {
                     ObtenerCantidadSolicitudes();
                     LimpiarCampos();
+
                     string script = $@"
                                     Swal.fire({{
                                         title: 'Solicitud Teletrabajo',
@@ -82,14 +85,13 @@ namespace TeleWorkManager.Pages
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
                 }
             }
-
-           
-        
         }
+
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
+
         protected void clrCalendario_DayRender(object sender, System.Web.UI.WebControls.DayRenderEventArgs e)
         {
             DateTime hoy = DateTime.Today;
@@ -100,7 +102,6 @@ namespace TeleWorkManager.Pages
                 e.Cell.ForeColor = System.Drawing.Color.Gray;
                 e.Cell.BackColor = System.Drawing.Color.LightGray;
             }
-
         }
 
         protected void btnRptDiasTele_Click(object sender, EventArgs e)
@@ -136,8 +137,7 @@ namespace TeleWorkManager.Pages
                 script,
                 true);
         }
-
-
+        
         #region Métodos
         public void ObtenerDatosDíasAsignados()
         {
@@ -149,6 +149,7 @@ namespace TeleWorkManager.Pages
             lblMesAnnoTeletrabajo.Text = $"{mes}-{DateTime.Now.Year}";
             lblDiasTeletrabajo.Text = cDashboardEmployeeBLL.ObtenerDiasFaltantesTeletrabajo(Convert.ToInt32(Session["EmpleadoID"])).ToString();
         }
+
         public void ObtenerProximoDiaTeletrabajo()
         {
             string dia = cDashboardEmployeeBLL.ObtenerProximoDiaTeletrabajo(Convert.ToInt32(Session["EmpleadoID"])).Split('-')[0];
@@ -162,28 +163,20 @@ namespace TeleWorkManager.Pages
 
         public void ObtenerCantidadSolicitudes()
         {
-            lblCantidadSolicitudes.Text= cDashboardEmployeeBLL.ObtenerCantidadSolicitudes(Convert.ToInt32(Session["EmpleadoID"]));
-            
+            lblCantidadSolicitudes.Text= cDashboardEmployeeBLL.ObtenerCantidadSolicitudes(Convert.ToInt32(Session["EmpleadoID"]));   
         }
+
         public void ObtenerNotificaciones()
         {
             lblCantidadNotificaciones.Text = cDashboardEmployeeBLL.ObtenerCantidadNotificaciones(Convert.ToInt32(Session["EmpleadoID"]));
-
         }
+
         public void LimpiarCampos()
         {
             txtMotivo.Text = String.Empty;
             txtFecha.Text = String.Empty;
             clrCalendario.SelectedDate = DateTime.Now;
         }
-
-
-
-
-
-
         #endregion
-
-
     }
 }

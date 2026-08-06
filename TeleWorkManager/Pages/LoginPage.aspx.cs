@@ -2,7 +2,6 @@
 using ENT;
 using System;
 
-
 namespace TeleWorkManager.Pages
 {
     public partial class LoginPage : System.Web.UI.Page
@@ -14,8 +13,8 @@ namespace TeleWorkManager.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["LoginOK"] = false;
-
         }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text))
@@ -38,6 +37,7 @@ namespace TeleWorkManager.Pages
                 Email = txtEmail.Text,
                 Password = txtPassword.Text,
             };
+
             if (ValidarCredenciales(userData))
             {
                 Session["LoginOK"] = true;
@@ -45,14 +45,11 @@ namespace TeleWorkManager.Pages
                 {
                     Response.Redirect("~/Pages/DashboardEmployeePage.aspx");
                 }
-               
             }
-
         }
         #endregion
 
         #region Metodos
-
         private bool ValidarCredenciales(CLoginENT usuarioDatos)
         {
             try
@@ -95,9 +92,6 @@ namespace TeleWorkManager.Pages
                 return false;
             }
         }
-
         #endregion
-
-     
     }
 }

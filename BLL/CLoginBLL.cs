@@ -17,7 +17,6 @@ namespace BLL
         private static readonly string Key = "X9#mL2@vQ7!rT5$uN8&pK1^zW4*eY6hA"; // 32 caracteres
         private static readonly string IV = "B7@nQ2#xL9$pR4!Z"; // 16 caracteres
 
-
         public CLoginENT ValidarCredenciales(string email, string password)
         {
             vSQL = @"SELECT EmpleadoID,Nombre,RolID FROM Empleados WHERE UPPER(Correo)='" + email+"' AND Contrasena='"+ Encrypt(password) + "' AND Activo=1";

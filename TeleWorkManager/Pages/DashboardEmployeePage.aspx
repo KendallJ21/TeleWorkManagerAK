@@ -30,7 +30,7 @@
                     <i class="bi bi-house-door-fill"></i>
 
                     TeleWork Manager
-               </h1>
+                </h1>
 
                 <h4>
                     <asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
@@ -118,7 +118,7 @@
                 <h4 class="title mb-4">
                     <i class="bi bi-calendar-check"></i>
                     Solicitud de Teletrabajo
-               </h4>
+                </h4>
 
                 <div class="row">
                     <!-- Calendario -->
@@ -177,7 +177,7 @@
                             runat="server"
                             CssClass="form-control mb-3"
                             ReadOnly="true">
-                     </asp:TextBox>
+                        </asp:TextBox>
 
                         <label class="form-label letra">
                             Motivo de la solicitud
@@ -191,7 +191,7 @@
                             TextMode="MultiLine"
                             Rows="5"
                             placeholder="Ingrese el motivo de la solicitud...">
-                     </asp:TextBox>
+                        </asp:TextBox>
                         <div class="d-grid gap-2">
                             <asp:Button
                                 ID="btnSolicitar"
