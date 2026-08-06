@@ -34,6 +34,9 @@
 
                 <h4>
                     <asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
+                <a href="#" onclick="enviarCorreoCambio(); return false;">Cambiar Contraseña
+</a>
+                <br />
                 <a href="LoginPage.aspx">Cerrar Sesión</a>
             </div>
 
@@ -99,7 +102,16 @@
 
                 <div class="col-md-3">
                     <div class="card-dashboard text-center">
-                        <i class="bi bi-bell icon-dashboard"></i>
+
+                        <asp:LinkButton
+                            ID="btnNotificaciones"
+                            runat="server"
+                            CssClass="btn btn-link p-0 border-0"
+                            OnClick="btnNotificaciones_Click">
+                                 <i class="bi bi-bell icon-dashboard"></i>
+                        </asp:LinkButton>
+
+
 
                         <h5 class="letra mt-3">Notificaciones</h5>
 
@@ -219,8 +231,8 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
-                    <div class="modal-header">
-                        <h5 class="modal-title">Días de teletrabajo del mes</h5>
+                    <div class="modal-header dark-color text-white">
+                        <h5 class="modal-title"><i class="bi bi-calendar-event"></i> Días de teletrabajo del mes</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
@@ -259,7 +271,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
-                    <div class="modal-header">
+                    <div class="modal-header dark-color text-white">
                         <h5 class="modal-title">
                             <i class="bi bi-file-earmark-text"></i>
                             Solicitudes de Teletrabajo Pendientes
@@ -284,7 +296,7 @@
 
                                             <div class="card-body">
 
-                                                <h5 class="card-title " style="color: #00adb5">
+                                                <h5 class="card-title dark-color-text">
                                                     <i class="bi bi-file-text"></i>
                                                     Solicitud #<%# Eval("SolicitudID") %>
                                                 </h5>
@@ -326,7 +338,69 @@
             </div>
         </div>
 
+        <div class="modal fade" id="ModalNotificaciones" tabindex="-1" aria-labelledby="modalNotificacionesLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content border-0 shadow">
+
+                    <div class="modal-header dark-color  text-white">
+                        <h5 class="modal-title" id="modalNotificacionesLabel">
+                            <i class="bi bi-bell-fill me-2"></i>
+                            Notificaciones
+                        </h5>
+
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body bg-light">
+
+                        <asp:Repeater ID="RptNotificaciones" runat="server">
+                            <ItemTemplate>
+
+                                <div class="card mb-3 border-0 shadow-sm notification-card">
+                                    <div class="card-body">
+
+                                        <div class="d-flex justify-content-between align-items-start">
+
+                                            <div>
+                                                <h6 class="fw-bold mb-1">
+                                                    <i class="bi bi-info-circle-fill dark-color-text  me-2"></i>
+                                                    <%# Eval("Titulo") %>
+                                                </h6>
+
+                                                <p class="mb-2 text-muted">
+                                                    <%# Eval("Mensaje") %>
+                                                </p>
+                                            </div>
+
+                                            <small class="text-secondary">
+                                                <%# Convert.ToDateTime(Eval("Fecha")).ToString("dd/MM/yyyy HH:mm") %>
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </form>
 </body>
 </html>
+
+<script>
+    function enviarCorreoCambio() {
+        Swal.fire({
+            title: 'Correo enviado',
+            text: 'Se ha enviado un correo electrónico con las instrucciones para cambiar su contraseña. Revise su bandeja de entrada y, si no lo encuentra, verifique la carpeta de correo no deseado.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+</script>
