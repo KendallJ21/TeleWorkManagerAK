@@ -143,7 +143,7 @@ namespace TeleWorkManager.Pages
             RptNotificaciones.DataSource = cDashboardEmployeeBLL.ObtenerNotificaciones(Convert.ToInt32(Session["EmpleadoID"]));
             RptNotificaciones.DataBind();
 
-            lblCantidadNotificaciones.Text= cDashboardEmployeeBLL.  (Convert.ToInt32(Session["EmpleadoID"]));
+            lblCantidadNotificaciones.Text= cDashboardEmployeeBLL.ObtenerCantidadNotificaciones(Convert.ToInt32(Session["EmpleadoID"]));
 
             string script = @"
                             var modal = new bootstrap.Modal(document.getElementById('ModalNotificaciones'));
