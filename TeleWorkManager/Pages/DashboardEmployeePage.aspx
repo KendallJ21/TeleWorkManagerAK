@@ -4,14 +4,14 @@
 
 <!doctype html>
 <html>
-    <head runat="server">
-        <title>Dashboard - TeleWork Manager</title>
+<head runat="server">
+    <title>Dashboard - TeleWork Manager</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <body>
     <form id="form1" runat="server">
@@ -19,8 +19,9 @@
             <!-- TITULO -->
 
             <div class="text-center mb-4">
-                <h1> <i class="bi bi-house-door-fill"></i> TeleWork Manager </h1>
-                <h4><asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
+                <h1><i class="bi bi-house-door-fill"></i>TeleWork Manager </h1>
+                <h4>
+                    <asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
 
                 <div class="mt-2">
                     <a href="ProfilePage.aspx" class="btn btn-custom me-2">
@@ -143,7 +144,7 @@
                             ForeColor="Black"
                             Width="100%"
                             Height="350px"
-                            NextPrevFormat="ShortMonth" OnSelectionChanged="clrCalendario_SelectionChanged" OnDayRender="clrCalendario_DayRender">
+                            NextPrevFormat="ShortMonth" OnSelectionChanged="clrCalendario_SelectionChanged" OnDayRender="clrCalendario_DayRender" OnVisibleMonthChanged="clrCalendario_VisibleMonthChanged">
                             <DayHeaderStyle
                                 Font-Bold="True"
                                 Font-Size="8pt"
@@ -204,13 +205,18 @@
                                 ID="btnSolicitar"
                                 runat="server"
                                 Text="Enviar Solicitud"
-                                CssClass="btn btn-custom btn-lg" OnClick="btnSolicitar_Click" />
+                                CssClass="btn btn-custom btn-m" OnClick="btnSolicitar_Click" />
 
                             <asp:Button
                                 ID="btnLimpiar"
                                 runat="server"
                                 Text="Limpiar"
-                                CssClass="btn btn-outline-light" OnClick="btnLimpiar_Click" />
+                                CssClass="btn btn-custom btn-m" OnClick="btnLimpiar_Click" />
+                            <asp:Button
+                                ID="btnReportePDF"
+                                runat="server"
+                                Text="Descargar Reporte Mensual"
+                                CssClass="btn btn-m bg-success text-white" OnClick="btnReportePDF_Click" />
                         </div>
                     </div>
                 </div>
@@ -227,7 +233,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header dark-color text-white">
-                        <h5 class="modal-title"><i class="bi bi-calendar-event"></i> Días de teletrabajo del mes</h5>
+                        <h5 class="modal-title"><i class="bi bi-calendar-event"></i>Días de teletrabajo del mes</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
@@ -262,7 +268,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="ModalSolicitudes" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">

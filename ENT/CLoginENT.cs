@@ -13,5 +13,6 @@
         public int IdRol { get; set; }
 
         public int DepartamentoID { get; set; }
+        public string CorreoSupervisor { get; set; }
     }
 }
