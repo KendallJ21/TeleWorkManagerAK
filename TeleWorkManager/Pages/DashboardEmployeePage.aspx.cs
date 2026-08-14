@@ -155,7 +155,6 @@ namespace TeleWorkManager.Pages
                 "MostrarModal",
                 script,
                 true);
-
         }
 
         #region Métodos
@@ -197,8 +196,6 @@ namespace TeleWorkManager.Pages
             txtFecha.Text = String.Empty;
             clrCalendario.SelectedDate = DateTime.Now;
         }
-        #endregion
-
-      
+        #endregion  
     }
 }

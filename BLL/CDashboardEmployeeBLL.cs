@@ -15,7 +15,7 @@ namespace BLL
         {
             vSQL = @"SELECT COUNT(*) dias
                         FROM ProgramacionTeletrabajo
-                        WHERE  MONTH(Fecha) = MONTH(GETDATE())
+                        WHERE MONTH(Fecha) = MONTH(GETDATE())
                           AND YEAR(Fecha) = YEAR(GETDATE())
                           AND EmpleadoID = " + EmpleadoID;
 
@@ -57,8 +57,8 @@ namespace BLL
                     WHERE YEAR(Fecha) = YEAR(GETDATE())
                       AND MONTH(Fecha) = MONTH(GETDATE())
                       AND EmpleadoID="+EmpleadoID+ " ORDER BY Fecha ASC";
+
             List< CRptDiasTeletrabajo> cRptDiasTeletrabajo = new List<CRptDiasTeletrabajo>();
-            
             DataSet response = cConexionBD.mObtenerDatos(vSQL);
 
             foreach (DataTable table in response.Tables)
@@ -70,12 +70,12 @@ namespace BLL
                     c.FechaTeletrabajo = row["FechaTeletrabajo"].ToString();
                     c.Observacion = row["Observacion"].ToString();
                     cRptDiasTeletrabajo.Add(c);
-
                 }
             }
         
             return cRptDiasTeletrabajo;
         }
+
         public List<CNotificacionesENT> ObtenerNotificaciones(int EmpleadoID)
         {
             vSQL = @"SELECT [NotificacionID]
@@ -99,14 +99,15 @@ namespace BLL
                     c.Mensaje = row["Mensaje"].ToString();
                     c.Fecha = Convert.ToDateTime(row["Fecha"]);
                     cNotificaciones.Add(c);
-
                 }
             }
+
             vSQL = @"Update [Notificaciones] SET Leida=1 WHERE EmpleadoID="+EmpleadoID+" AND Leida=0";
             cConexionBD.Ejecutar(vSQL);
 
             return cNotificaciones;
         }
+
         public List<CSolicitudesENT> ObtenerSolicitudesPendientes(int EmpleadoID)
         {
             vSQL = @"SELECT 
@@ -134,12 +135,12 @@ namespace BLL
                     c.FechaTeletrabajo = Convert.ToDateTime(row["FechaTeletrabajo"]);
                     c.Motivo = row["Motivo"].ToString();
                     cSolicitudes.Add(c);
-
                 }
             }
 
             return cSolicitudes;
         }
+
         public bool CrearSolicitud(CSolicitudENT cSolicitudENT)
         {
             try
