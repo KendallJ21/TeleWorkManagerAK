@@ -3,22 +3,15 @@
     Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
 
 <!doctype html>
-
 <html>
-<head runat="server">
-    <title>Dashboard - TeleWork Manager</title>
+    <head runat="server">
+        <title>Dashboard - TeleWork Manager</title>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet" />
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet" />
-
-    <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
 
 <body>
     <form id="form1" runat="server">
@@ -26,16 +19,9 @@
             <!-- TITULO -->
 
             <div class="text-center mb-4">
-                <h1>
-                    <i class="bi bi-house-door-fill"></i>
-
-                    TeleWork Manager
-                </h1>
-
-                <h4>
-                    <asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
-                <a href="#" onclick="enviarCorreoCambio(); return false;">Cambiar Contraseña
-</a>
+                <h1> <i class="bi bi-house-door-fill"></i> TeleWork Manager </h1>
+                <h4><asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
+                <a href="#" onclick="enviarCorreoCambio(); return false;">Cambiar Contraseña</a>
                 <br />
                 <a href="LoginPage.aspx">Cerrar Sesión</a>
             </div>

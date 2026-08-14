@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ENT
+﻿namespace ENT
 {
     public class CRptDiasTeletrabajo
     {

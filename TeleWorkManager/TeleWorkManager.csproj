@@ -68,9 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\DashboardEmployeePage.css" />
+    <Content Include="CSS\DashboardSupervisorPage.css" />
     <Content Include="CSS\LoginPage.css" />
+    <Content Include="CSS\RequestManagmentPage.css" />
     <Content Include="Pages\DashboardEmployeePage.aspx" />
+    <Content Include="Pages\DashboardSupervisorPage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
+    <Content Include="Pages\RequestManagmentPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,12 +85,26 @@
     <Compile Include="Pages\DashboardEmployeePage.aspx.designer.cs">
       <DependentUpon>DashboardEmployeePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DashboardSupervisorPage.aspx.cs">
+      <DependentUpon>DashboardSupervisorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DashboardSupervisorPage.aspx.designer.cs">
+      <DependentUpon>DashboardSupervisorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RequestManagmentPage.aspx.cs">
+      <DependentUpon>RequestManagmentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RequestManagmentPage.aspx.designer.cs">
+      <DependentUpon>RequestManagmentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{D297B967-C5FE-497F-9C19-603E772F06A4}</Project>
+      <Project>{d297b967-c5fe-497f-9c19-603e772f06a4}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\ENT\ENT.csproj">

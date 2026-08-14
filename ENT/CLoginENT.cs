@@ -11,5 +11,7 @@
         public string Nombre { get; set; }
 
         public int IdRol { get; set; }
+
+        public int DepartamentoID { get; set; }
     }
 }

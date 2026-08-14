@@ -44,6 +44,9 @@ namespace TeleWorkManager.Pages
                 if (Convert.ToInt32(Session["IdRol"])==3)// Valor para saber que es solo empleado
                 {
                     Response.Redirect("~/Pages/DashboardEmployeePage.aspx");
+                }else if (Convert.ToInt32(Session["IdRol"]) == 1)
+                {
+                    Response.Redirect("~/Pages/DashboardSupervisorPage.aspx");
                 }
             }
         }
@@ -60,6 +63,8 @@ namespace TeleWorkManager.Pages
                     Session["EmpleadoID"] = Usuario.EmpleadoID;
                     Session["IdRol"] = Usuario.IdRol;
                     Session["Nombre"] = Usuario.Nombre;
+                    Session["DepartamentoID"] = Usuario.DepartamentoID;
+
                     return true;
                 }
                 else

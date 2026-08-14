@@ -1,0 +1,132 @@
+﻿/* Contenedor principal */
+.login-card {
+    background-color: #222831;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos */
+.title {
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.login-card small {
+    color: #aaaaaa;
+}
+
+/* Tarjetas internas */
+.card {
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 12px;
+}
+
+/* Labels */
+.form-label {
+    color: #222831;
+    font-weight: 600;
+}
+
+/* Inputs y Select */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #00adb5;
+        box-shadow: 0 0 0 0.2rem rgba(0, 173, 181, 0.2);
+    }
+
+/* Botón personalizado */
+.btn-custom {
+    background-color: #00adb5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 600;
+}
+
+    .btn-custom:hover {
+        background-color: #008f96;
+        color: white;
+    }
+
+/* Tabla */
+.table {
+    margin-bottom: 0;
+}
+
+    .table thead th {
+        background-color: #222831;
+        color: #eeeeee;
+        border: none;
+        padding: 12px;
+    }
+
+    .table tbody td {
+        vertical-align: middle;
+        padding: 12px;
+    }
+
+/* Hover de las filas */
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botones de acciones */
+.btn-sm {
+    border-radius: 7px;
+}
+
+/* Estado */
+.badge {
+    padding: 7px 10px;
+    border-radius: 7px;
+}
+
+/* Modal */
+.modal-content {
+    border: none;
+    border-radius: 15px;
+}
+
+.modal-header {
+    background-color: #222831;
+    color: #eeeeee;
+    border-radius: 15px 15px 0 0;
+}
+
+    .modal-header .btn-close {
+        filter: invert(1);
+    }
+
+.modal-footer {
+    border-top: 1px solid #eeeeee;
+}
+
+/* Texto de cantidad */
+#lblCantidadSolicitudes {
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .login-card {
+        padding: 20px !important;
+    }
+
+    .table {
+        font-size: 13px;
+    }
+
+    .btn-sm {
+        padding: 5px 7px;
+    }
+}
