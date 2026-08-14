@@ -13,5 +13,9 @@
         public string apellido2 { get; set; }
 
         public string Colaborador { get; set; }
+
+        public string correo { get; set; }
+
+        public int telefono { get; set; }
     }
 }

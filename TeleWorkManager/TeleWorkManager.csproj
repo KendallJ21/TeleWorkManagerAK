@@ -70,10 +70,12 @@
     <Content Include="CSS\DashboardEmployeePage.css" />
     <Content Include="CSS\DashboardSupervisorPage.css" />
     <Content Include="CSS\LoginPage.css" />
+    <Content Include="CSS\ProfilePage.css" />
     <Content Include="CSS\RequestManagmentPage.css" />
     <Content Include="Pages\DashboardEmployeePage.aspx" />
     <Content Include="Pages\DashboardSupervisorPage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
+    <Content Include="Pages\ProfilePage.aspx" />
     <Content Include="Pages\RequestManagmentPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -98,6 +100,13 @@
     </Compile>
     <Compile Include="Pages\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RequestManagmentPage.aspx.cs">
       <DependentUpon>RequestManagmentPage.aspx</DependentUpon>

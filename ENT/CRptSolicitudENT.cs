@@ -2,9 +2,10 @@
 
 namespace ENT
 {
-    public class CRptSolicitud
+    public class CRptSolicitudENT
     {
         public int SolicitudID { get; set; }
+
         public string Empleado { get; set; }
 
         public DateTime Fecha { get; set; }

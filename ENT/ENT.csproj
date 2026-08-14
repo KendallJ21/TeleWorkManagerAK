@@ -42,10 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CEmployeeENT.cs" />
+    <Compile Include="CEnvioCorreoENT.cs" />
     <Compile Include="CNotificacionesENT.cs" />
-    <Compile Include="CRptDiasTeletrabajo.cs" />
+    <Compile Include="CRptDiasTeletrabajoENT.cs" />
     <Compile Include="CLoginENT.cs" />
-    <Compile Include="CRptSolicitud.cs" />
+    <Compile Include="CRptSolicitudENT.cs" />
     <Compile Include="CSolicitudENT.cs" />
     <Compile Include="CSolicitudesENT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -26,12 +26,12 @@
                             Gestionar Solicitudes
                         </a>
 
-                        <a href="ProgramacionMensualPage.aspx" class="btn btn-programacion me-2">
+                        <a href="ProgramacionMensualPage.aspx" class="btn btn-custom me-2">
                             <i class="bi bi-calendar3"></i>
                             Programación Mensual
                         </a>
 
-                        <a href="LoginPage.aspx" class="btn btn-outline-danger">
+                        <a href="LoginPage.aspx" class="btn btn-danger">
                             <i class="bi bi-box-arrow-right"></i>
                             Cerrar Sesión
                         </a>
