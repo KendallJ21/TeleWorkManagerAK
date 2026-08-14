@@ -30,6 +30,16 @@
                             <i class="bi bi-calendar3"></i>
                             Programación Mensual
                         </a>
+                        
+                        <a href="DepartmentCalendarPage.aspx" class="btn btn-custom me-2">
+                            <i class="bi bi-calendar3"></i>
+                            Calendario del Departamento
+                        </a>
+
+                        <a href="ProfilePage.aspx" class="btn btn-custom me-2">
+                            <i class="bi-person-gear"></i>
+                            Actualizar Información
+                        </a>
 
                         <a href="LoginPage.aspx" class="btn btn-danger">
                             <i class="bi bi-box-arrow-right"></i>

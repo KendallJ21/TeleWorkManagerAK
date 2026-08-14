@@ -44,7 +44,11 @@ namespace TeleWorkManager.Pages
                 if (Convert.ToInt32(Session["IdRol"])==3)// Valor para saber que es solo empleado
                 {
                     Response.Redirect("~/Pages/DashboardEmployeePage.aspx");
-                }else if (Convert.ToInt32(Session["IdRol"]) == 1)
+                }else if (Convert.ToInt32(Session["IdRol"]) == 2)
+                {
+                    Response.Redirect("~/Pages/DashboardSupervisorPage.aspx");
+                }
+                else if (Convert.ToInt32(Session["IdRol"]) == 1)
                 {
                     Response.Redirect("~/Pages/DashboardSupervisorPage.aspx");
                 }

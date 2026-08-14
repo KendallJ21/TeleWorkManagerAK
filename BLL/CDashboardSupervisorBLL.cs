@@ -11,40 +11,49 @@ namespace BLL
         private CConexionBD cConexionBD = new CConexionBD();
         private string vSQL = string.Empty;
 
-        public string ObtenerCantidadSolicitudesAprobadas(int DepartamentoID)
+        public string ObtenerCantidadSolicitudesAprobadas(int DepartamentoID, DateTime mes)
         {
+            DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
+            DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
+
             vSQL = @"SELECT COUNT(1) FROM [dbo].[SolicitudesTeletrabajo] T1 
                     INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID                     
                     WHERE 
                         EstadoID = 'Aprobada' 
-                        AND MONTH(T1.FechaTeletrabajo) = MONTH(GETDATE())
-                        AND YEAR(T1.FechaTeletrabajo) = YEAR(GETDATE())
+                        AND T1.FechaTeletrabajo >= '" + primerDiaMes.ToString("yyyy-MM-dd") + @"'
+                        AND T1.FechaTeletrabajo < '" + primerDiaMesSiguiente.ToString("yyyy-MM-dd") + @"'
                         AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
         }
 
-        public string ObtenerCantidadSolicitudesRechazadas( int DepartamentoID)
+        public string ObtenerCantidadSolicitudesRechazadas( int DepartamentoID, DateTime mes)
         {
+            DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
+            DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
+
             vSQL = @"SELECT COUNT(1) FROM [dbo].[SolicitudesTeletrabajo] T1 
                     INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID 
                     WHERE 
                         EstadoID = 'Rechazada' 
-                        AND MONTH(T1.FechaTeletrabajo) = MONTH(GETDATE())
-                        AND YEAR(T1.FechaTeletrabajo) = YEAR(GETDATE())
+                        AND T1.FechaTeletrabajo >= '" + primerDiaMes.ToString("yyyy-MM-dd") + @"'
+                        AND T1.FechaTeletrabajo < '" + primerDiaMesSiguiente.ToString("yyyy-MM-dd") + @"'
                         AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
         }
 
-        public string ObtenerCantidadSolicitudesPendientes(int DepartamentoID)
+        public string ObtenerCantidadSolicitudesPendientes(int DepartamentoID, DateTime mes)
         {
+            DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
+            DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
+
             vSQL = @"SELECT COUNT(1) FROM [dbo].[SolicitudesTeletrabajo] T1 
                     INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID 
                     WHERE 
                         EstadoID = 'Pendiente' 
-                        AND MONTH(T1.FechaTeletrabajo) = MONTH(GETDATE())
-                        AND YEAR(T1.FechaTeletrabajo) = YEAR(GETDATE())
+                        AND T1.FechaTeletrabajo >= '" + primerDiaMes.ToString("yyyy-MM-dd") + @"'
+                        AND T1.FechaTeletrabajo < '" + primerDiaMesSiguiente.ToString("yyyy-MM-dd") + @"'
                         AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
@@ -67,27 +76,33 @@ namespace BLL
             return cConexionBD.mObtenerDato(vSQL);
         }
 
-        public string ObtenerCantidadDiasProgramados(int DepartamentoID)
+        public string ObtenerCantidadDiasProgramados(int DepartamentoID, DateTime mes)
         {
+            DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
+            DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
+
             vSQL = @"SELECT COUNT(1)
                         FROM dbo.ProgramacionTeletrabajo T1
                             INNER JOIN Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID
                         WHERE 
-                            T1.Fecha >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0)
-                              AND T1.Fecha < DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) + 1, 0)
-                              AND T2.DepartamentoID = " + DepartamentoID;
+                            T1.Fecha >= '" + primerDiaMes.ToString("yyyy-MM-dd") + @"'
+                            AND T1.Fecha < '" + primerDiaMesSiguiente.ToString("yyyy-MM-dd") + @"'
+                            AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
         }
 
-        public string ObtenerCumplimiento(int DepartamentoID)
+        public string ObtenerCumplimiento(int DepartamentoID, DateTime mes)
         {
+            DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
+            DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
+
             vSQL = @"SELECT CAST(COUNT(CASE WHEN T1.Fecha < CAST(GETDATE() AS DATE) THEN 1 END) * 100.0 / NULLIF(COUNT(*), 0) AS DECIMAL(5,2))
                     FROM dbo.ProgramacionTeletrabajo T1
 	                    INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID
                     WHERE
-                        T1.Fecha >= DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1)
-                        AND T1.Fecha < DATEADD(MONTH, 1, DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1))
+                        T1.Fecha >= '" + primerDiaMes.ToString("yyyy-MM-dd") + @"'
+                        AND T1.Fecha < '" + primerDiaMesSiguiente.ToString("yyyy-MM-dd") + @"'
                         AND T2.DepartamentoID =" + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);

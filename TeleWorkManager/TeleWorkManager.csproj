@@ -72,8 +72,10 @@
     <Content Include="CSS\LoginPage.css" />
     <Content Include="CSS\ProfilePage.css" />
     <Content Include="CSS\RequestManagmentPage.css" />
+    <Content Include="Scripts\DepartmentCalendar.js" />
     <Content Include="Pages\DashboardEmployeePage.aspx" />
     <Content Include="Pages\DashboardSupervisorPage.aspx" />
+    <Content Include="Pages\DepartmentCalendarPage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\ProfilePage.aspx" />
     <Content Include="Pages\RequestManagmentPage.aspx" />
@@ -93,6 +95,13 @@
     </Compile>
     <Compile Include="Pages\DashboardSupervisorPage.aspx.designer.cs">
       <DependentUpon>DashboardSupervisorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DepartmentCalendarPage.aspx.cs">
+      <DependentUpon>DepartmentCalendarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DepartmentCalendarPage.aspx.designer.cs">
+      <DependentUpon>DepartmentCalendarPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
