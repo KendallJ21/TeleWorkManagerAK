@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace ENT
+﻿namespace ENT
 {
-    public class CRptDiasTeletrabajo
+    public class CRptDiasTeletrabajoENT
     {
         public string FechaTeletrabajo { get; set; }
 

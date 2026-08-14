@@ -3,22 +3,15 @@
     Inherits="TeleWorkManager.Pages.DashboardEmployeePage" %>
 
 <!doctype html>
-
 <html>
-<head runat="server">
-    <title>Dashboard - TeleWork Manager</title>
+    <head runat="server">
+        <title>Dashboard - TeleWork Manager</title>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet" />
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet" />
-
-    <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="../CSS/DashboardEmployeePage.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
 
 <body>
     <form id="form1" runat="server">
@@ -26,18 +19,20 @@
             <!-- TITULO -->
 
             <div class="text-center mb-4">
-                <h1>
-                    <i class="bi bi-house-door-fill"></i>
+                <h1> <i class="bi bi-house-door-fill"></i> TeleWork Manager </h1>
+                <h4><asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
 
-                    TeleWork Manager
-                </h1>
+                <div class="mt-2">
+                    <a href="ProfilePage.aspx" class="btn btn-custom me-2">
+                        <i class="bi bi-calendar3"></i>
+                        Actualizar Información
+                    </a>
 
-                <h4>
-                    <asp:Label ID="lblBienvenida" runat="server" Text=""></asp:Label></h4>
-                <a href="#" onclick="enviarCorreoCambio(); return false;">Cambiar Contraseña
-</a>
-                <br />
-                <a href="LoginPage.aspx">Cerrar Sesión</a>
+                    <a href="LoginPage.aspx" class="btn btn-danger">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Cerrar Sesión
+                    </a>
+                </div>
             </div>
 
             <!-- RESUMEN -->
@@ -267,6 +262,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="modal fade" id="ModalSolicitudes" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -393,14 +389,3 @@
     </form>
 </body>
 </html>
-
-<script>
-    function enviarCorreoCambio() {
-        Swal.fire({
-            title: 'Correo enviado',
-            text: 'Se ha enviado un correo electrónico con las instrucciones para cambiar su contraseña. Revise su bandeja de entrada y, si no lo encuentra, verifique la carpeta de correo no deseado.',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        });
-    }
-</script>

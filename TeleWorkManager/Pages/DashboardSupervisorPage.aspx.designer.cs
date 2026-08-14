@@ -11,7 +11,7 @@ namespace TeleWorkManager.Pages
 {
 
 
-    public partial class DashboardEmployeePage
+    public partial class DashboardSupervisorPage
     {
 
         /// <summary>
@@ -24,94 +24,58 @@ namespace TeleWorkManager.Pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblBienvenida control.
+        /// txt_dashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBienvenida;
+        protected global::System.Web.UI.WebControls.Label txt_dashboard;
 
         /// <summary>
-        /// btnRptDiasTele control.
+        /// lblSolicitudesPendientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnRptDiasTele;
+        protected global::System.Web.UI.WebControls.Label lblSolicitudesPendientes;
 
         /// <summary>
-        /// lblDiasTeletrabajo control.
+        /// lblEmpleadosRemotos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDiasTeletrabajo;
+        protected global::System.Web.UI.WebControls.Label lblEmpleadosRemotos;
 
         /// <summary>
-        /// lblMesAnnoTeletrabajo control.
+        /// btnVerEmpleados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMesAnnoTeletrabajo;
+        protected global::System.Web.UI.WebControls.LinkButton btnVerEmpleados;
 
         /// <summary>
-        /// lblProximoDia control.
+        /// lblDiasProgramados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProximoDia;
+        protected global::System.Web.UI.WebControls.Label lblDiasProgramados;
 
         /// <summary>
-        /// lblProximoMes control.
+        /// lblCumplimiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProximoMes;
-
-        /// <summary>
-        /// btnRptSolicitudes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnRptSolicitudes;
-
-        /// <summary>
-        /// lblCantidadSolicitudes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadSolicitudes;
-
-        /// <summary>
-        /// btnNotificaciones control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNotificaciones;
-
-        /// <summary>
-        /// lblCantidadNotificaciones control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadNotificaciones;
+        protected global::System.Web.UI.WebControls.Label lblCumplimiento;
 
         /// <summary>
         /// clrCalendario control.
@@ -123,66 +87,102 @@ namespace TeleWorkManager.Pages
         protected global::System.Web.UI.WebControls.Calendar clrCalendario;
 
         /// <summary>
-        /// txtFecha control.
+        /// lblAprobadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.WebControls.Label lblAprobadas;
 
         /// <summary>
-        /// txtMotivo control.
+        /// progressAprobadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMotivo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressAprobadas;
 
         /// <summary>
-        /// btnSolicitar control.
+        /// lblRechazadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSolicitar;
+        protected global::System.Web.UI.WebControls.Label lblRechazadas;
 
         /// <summary>
-        /// btnLimpiar control.
+        /// progressRechazadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressRechazadas;
 
         /// <summary>
-        /// RptDiasTele control.
+        /// lblPendientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptDiasTele;
+        protected global::System.Web.UI.WebControls.Label lblPendientes;
 
         /// <summary>
-        /// RptSolicitudes control.
+        /// progressPendientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptSolicitudes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressPendientes;
 
         /// <summary>
-        /// RptNotificaciones control.
+        /// lblTotalEmpleados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptNotificaciones;
+        protected global::System.Web.UI.WebControls.Label lblTotalEmpleados;
+
+        /// <summary>
+        /// lblTotalDias control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalDias;
+
+        /// <summary>
+        /// lblTotalAprobadas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAprobadas;
+
+        /// <summary>
+        /// lblTotalRechazadas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalRechazadas;
+
+        /// <summary>
+        /// RptEmpleadosRemotos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RptEmpleadosRemotos;
     }
 }

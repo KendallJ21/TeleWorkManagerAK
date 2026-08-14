@@ -1,0 +1,181 @@
+﻿body {
+    background-color: #f5f6f8;
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    padding: 30px;
+}
+
+/* HEADER */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+    .profile-header h2 {
+        margin: 0;
+        font-weight: 700;
+        color: #222831;
+    }
+
+    .profile-header p {
+        margin: 5px 0 0;
+        color: #6c757d;
+    }
+
+.profile-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #222831;
+    color: white;
+    font-size: 25px;
+}
+
+
+/* CARD */
+
+.profile-card {
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.card-header-custom {
+    padding: 18px 25px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222831;
+}
+
+    .card-header-custom i {
+        margin-right: 8px;
+    }
+
+.card-body-custom {
+    padding: 25px;
+}
+
+
+    /* CAMPOS */
+
+    .card-body-custom label {
+        display: block;
+        font-size: 13px;
+        color: #6c757d;
+        margin-bottom: 7px;
+        font-weight: 600;
+    }
+
+.info-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    color: #343a40;
+}
+
+    .info-field i {
+        color: #6c757d;
+    }
+
+
+/* BOTONES */
+
+.card-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* SEGURIDAD */
+
+.security-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.security-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #eef1f4;
+    color: #222831;
+    font-size: 28px;
+}
+
+.security-card h4 {
+    font-weight: 700;
+    color: #222831;
+}
+
+.security-card p {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+
+/* ESTADO */
+
+.status-card {
+    background-color: white;
+    padding: 18px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.status-icon {
+    font-size: 30px;
+    color: #198754;
+}
+
+.status-card strong {
+    color: #343a40;
+}
+
+.status-card p {
+    margin: 3px 0 0;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.btn-custom-dark {
+    background-color: #222831;
+    color: white;
+    border: 1px solid #222831;
+}
+
+    .btn-custom-dark:hover {
+        background-color: #171b20;
+        color: white;
+        border-color: #171b20;
+    }
+
+    .btn-custom-dark:focus {
+        box-shadow: 0 0 0 0.2rem rgba(34, 40, 49, 0.25);
+    }

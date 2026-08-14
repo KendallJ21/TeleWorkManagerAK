@@ -63,7 +63,7 @@
                 <small>
                     <i class="bi bi-person-plus"></i>
                     ¿Olvidaste tu contraseñna?
-                     <a href="UserRegistrationPage.aspx">Presiona para recuperar</a>
+                     <a href="#" onclick="enviarCorreoCambio()">Presiona para recuperar</a>
                 </small>
             </div>
         </div>
@@ -71,3 +71,14 @@
 </body>
 
 </html>
+
+<script>
+    function enviarCorreoCambio() {
+        Swal.fire({
+            title: 'Correo enviado',
+            text: 'Se ha enviado un correo electrónico con las instrucciones para cambiar su contraseña. Revise su bandeja de entrada y, si no lo encuentra, verifique la carpeta de correo no deseado.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+</script>

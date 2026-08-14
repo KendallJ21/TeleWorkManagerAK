@@ -1,0 +1,118 @@
+﻿body {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.title {
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.letra {
+    color: #eeeeee;
+}
+
+.login-card {
+    background-color: #222831;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-supervisor {
+    width: 100%;
+}
+
+.card-dashboard {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-dashboard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card-dashboard h1 {
+    font-size: 42px;
+}
+
+.calendar-full {
+    width: 173% !important;
+}
+
+.calendar-full table {
+    width: 100% !important;
+}
+
+.calendar-full td,
+.calendar-full th {
+    height: 65px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.calendar-full td {
+    cursor: pointer;
+}
+
+.modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+.btn-custom {
+    background-color: #00adb5;
+    color: white;
+    border: none;
+}
+
+    .btn-custom:hover {
+        background-color: #00adb5;
+        color: white;
+        opacity: 0.9;
+    }
+
+.dark-color-text {
+    color: #00adb5;
+}
+
+.btn-programacion {
+    background-color: #393e46;
+    color: white;
+    border: none;
+}
+
+    .btn-programacion:hover {
+        background-color: #393e46;
+        color: white;
+        opacity: 0.9;
+    }
+
+.icon-dashboard {
+    font-size: 40px;
+    color: #00adb5;
+}
+
+.dark-color {
+    background-color: #222831;
+}
+
+.dark-color-text {
+    color: #00adb5;
+}
+
+.card-dashboard {
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}

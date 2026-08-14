@@ -19,7 +19,7 @@ namespace BLL
 
         public CLoginENT ValidarCredenciales(string email, string password)
         {
-            vSQL = @"SELECT EmpleadoID,Nombre,RolID FROM Empleados WHERE UPPER(Correo)='" + email+"' AND Contrasena='"+ Encrypt(password) + "' AND Activo=1";
+            vSQL = @"SELECT EmpleadoID,Nombre,RolID, DepartamentoID FROM Empleados WHERE UPPER(Correo)='" + email+"' AND Contrasena='"+ Encrypt(password) + "' AND Activo=1";
             CLoginENT cEmpleado= new CLoginENT();
             bool isNull = true;
 
@@ -32,14 +32,17 @@ namespace BLL
                     cEmpleado.EmpleadoID = Convert.ToInt32( row["EmpleadoID"].ToString());
                     cEmpleado.Nombre = row["Nombre"].ToString();
                     cEmpleado.IdRol = Convert.ToInt32( row["RolID"].ToString());
+                    cEmpleado.DepartamentoID = Convert.ToInt32(row["DepartamentoID"].ToString());
                     cEmpleado.Email = email;
                     cEmpleado.Password = null;  
                 }
             }
+
             if (isNull)
                 cEmpleado = null;
             return cEmpleado;
         }
+
         private static string Encrypt(string texto)
         {
             using (Aes aes = Aes.Create())
