@@ -15,7 +15,11 @@ namespace BLL
         {
             vSQL = @"SELECT COUNT(1) FROM [dbo].[SolicitudesTeletrabajo] T1 
                     INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID                     
-                    WHERE EstadoID = 'Aprobado' AND T2.DepartamentoID = " + DepartamentoID;
+                    WHERE 
+                        EstadoID = 'Aprobada' 
+                        AND MONTH(T1.FechaTeletrabajo) = MONTH(GETDATE())
+                        AND YEAR(T1.FechaTeletrabajo) = YEAR(GETDATE())
+                        AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
         }
@@ -24,7 +28,11 @@ namespace BLL
         {
             vSQL = @"SELECT COUNT(1) FROM [dbo].[SolicitudesTeletrabajo] T1 
                     INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID 
-                    WHERE EstadoID = 'Rechazada' AND T2.DepartamentoID = " + DepartamentoID;
+                    WHERE 
+                        EstadoID = 'Rechazada' 
+                        AND MONTH(T1.FechaTeletrabajo) = MONTH(GETDATE())
+                        AND YEAR(T1.FechaTeletrabajo) = YEAR(GETDATE())
+                        AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
         }
@@ -33,7 +41,11 @@ namespace BLL
         {
             vSQL = @"SELECT COUNT(1) FROM [dbo].[SolicitudesTeletrabajo] T1 
                     INNER JOIN dbo.Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID 
-                    WHERE EstadoID = 'Pendiente' AND T2.DepartamentoID = " + DepartamentoID;
+                    WHERE 
+                        EstadoID = 'Pendiente' 
+                        AND MONTH(T1.FechaTeletrabajo) = MONTH(GETDATE())
+                        AND YEAR(T1.FechaTeletrabajo) = YEAR(GETDATE())
+                        AND T2.DepartamentoID = " + DepartamentoID;
 
             return cConexionBD.mObtenerDato(vSQL);
 

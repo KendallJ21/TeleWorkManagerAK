@@ -105,7 +105,8 @@
                                     CssClass="table table-hover align-middle"
                                     GridLines="None"
                                     EmptyDataText="No existen solicitudes para mostrar."
-                                    OnRowCommand="gvSolicitudes_RowCommand">
+                                    OnRowCommand="gvSolicitudes_RowCommand"
+                                    OnRowDataBound="gvSolicitudes_RowDataBound">
 
                                     <Columns>
                                         <asp:BoundField DataField="Empleado" HeaderText="Empleado" />
@@ -139,17 +140,6 @@
                                                         CssClass="btn btn-sm btn-danger"
                                                         ToolTip="Rechazar">
                                                         <i class="bi bi-x-lg"></i>
-                                                    </asp:LinkButton>
-
-                                                    <!-- COMENTARIO -->
-                                                    <asp:LinkButton
-                                                        ID="btnComentario"
-                                                        runat="server"
-                                                        CommandName="Comentario"
-                                                        CommandArgument='<%# Eval("SolicitudID") %>'
-                                                        CssClass="btn btn-sm btn-secondary"
-                                                        ToolTip="Agregar comentario">
-                                                        <i class="bi bi-chat-left-text"></i>
                                                     </asp:LinkButton>
                                                 </div>
                                             </ItemTemplate>
@@ -190,8 +180,9 @@
                     </div>
                 </div>
             </div>
-
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../Scripts/Profile.js"></script>
         </form>
     </body>
 </html>

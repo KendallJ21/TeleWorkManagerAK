@@ -31,8 +31,9 @@ namespace TeleWorkManager.Pages
                 ObtenerCantidadDiasProgramados();
                 ObtenerCumplimiento();
                 ObtenerBarrasProgreso();
-                ObtenerDiasTeletrabajo(DateTime.Today);
-            }           
+            }
+
+            ObtenerDiasTeletrabajo(DateTime.Today);
         }
 
         protected void clrCalendario_DayRender(object sender, DayRenderEventArgs e)
@@ -50,6 +51,23 @@ namespace TeleWorkManager.Pages
             ObtenerDiasTeletrabajo(nuevoMes);
         }
 
+        protected void btnVerEmpleados_Click(object sender, EventArgs e)
+        {
+            RptEmpleadosRemotos.DataSource = cCDashboardSupervisorBLL.ObtenerColaboradores(Convert.ToInt32(Session["DepartamentoID"]));
+            RptEmpleadosRemotos.DataBind();
+
+            string script = @"
+                            var modal = new bootstrap.Modal(document.getElementById('ModalEmpleados'));
+                            modal.show();";
+
+            ScriptManager.RegisterStartupScript(
+                this,
+                this.GetType(),
+                "MostrarModal",
+                script,
+                true);
+        }
+       
         #region Métodos
         public void ObtenerCantidadSolicitudesAprobadas()
         {
@@ -91,23 +109,6 @@ namespace TeleWorkManager.Pages
         public void ObtenerCumplimiento()
         {
             lblCumplimiento.Text = cCDashboardSupervisorBLL.ObtenerCumplimiento(Convert.ToInt32(Session["DepartamentoID"]));
-        }
-
-        protected void btnVerEmpleados_Click(object sender, EventArgs e)
-        {
-            RptEmpleadosRemotos.DataSource = cCDashboardSupervisorBLL.ObtenerColaboradores(Convert.ToInt32(Session["DepartamentoID"]));
-            RptEmpleadosRemotos.DataBind();
-
-            string script = @"
-                            var modal = new bootstrap.Modal(document.getElementById('ModalEmpleados'));
-                            modal.show();";
-
-            ScriptManager.RegisterStartupScript(
-                this,
-                this.GetType(),
-                "MostrarModal",
-                script,
-                true);
         }
 
         public void ObtenerBarrasProgreso()
