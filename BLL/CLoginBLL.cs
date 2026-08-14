@@ -37,6 +37,19 @@ namespace BLL
                     cEmpleado.Password = null;  
                 }
             }
+            vSQL = @"SELECT E.Correo
+                      FROM [dbo].[Departamentos] D 
+                      Inner join Empleados E ON E.EmpleadoID=D.SupervisorID
+                      where D.DepartamentoID=" + cEmpleado.DepartamentoID;
+
+            response = cConexionBD.mObtenerDatos(vSQL);
+            foreach (DataTable table in response.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    cEmpleado.CorreoSupervisor = row["Correo"].ToString();
+                }
+            }
 
             if (isNull)
                 cEmpleado = null;

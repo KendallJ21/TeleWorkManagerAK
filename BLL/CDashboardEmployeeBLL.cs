@@ -3,6 +3,8 @@ using ENT;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
 
 namespace BLL
 {
@@ -229,6 +231,148 @@ namespace BLL
             {
                 return false;
             }
+
         }
+        public string ValidarSolicitarDia(CSolicitudENT cSolicitudENT)
+        {
+            vSQL = @"SELECT COUNT(1)
+                      FROM [dbo].[SolicitudesTeletrabajo]
+                      WHERE EmpleadoID="+cSolicitudENT.EmpleadoID+" and EstadoID='Pendiente' and FechaTeletrabajo='"+cSolicitudENT.FechaSolicitud+"'";
+
+             
+            string res=cConexionBD.mObtenerDato(vSQL);
+            if (!res.Equals("0"))
+            {
+                return "Ya tienes una solicitud pendiente para ese día";
+            }
+            else
+            {
+                return "OK";
+            }
+        
+        }
+
+        public List<DateTime> ObtenerDiasTeletrabajo(int EmpleadoID, DateTime mes)
+        {
+            DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
+            DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
+
+            vSQL = @"SELECT DISTINCT T1.Fecha FROM dbo.ProgramacionTeletrabajo T1
+                     INNER JOIN Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID
+                     WHERE 
+                         T1.Fecha >= '" + primerDiaMes.ToString("yyyy-MM-dd") + @"'
+                         AND T1.Fecha < '" + primerDiaMesSiguiente.ToString("yyyy-MM-dd") + @"'
+                         AND T2.EmpleadoID = " + EmpleadoID;
+
+            List<DateTime> fechastrabajo = new List<DateTime>();
+            DataSet response = cConexionBD.mObtenerDatos(vSQL);
+
+            foreach (DataTable table in response.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    DateTime fecha = Convert.ToDateTime(row["Fecha"]);
+                    fechastrabajo.Add(fecha.Date);
+                }
+            }
+
+            return fechastrabajo;
+        }
+        public void CreateEmailSolicitud(
+            string nombreEmpleado,
+            string correoSupervisor,
+            DateTime fechaSolicitud,
+            string motivo)
+        {
+            MailMessage correo = new MailMessage();
+
+            correo.From = new MailAddress("quesadabrenesantony@gmail.com");
+            correo.To.Add(correoSupervisor);
+
+            correo.Subject = "Nueva solicitud de teletrabajo";
+
+            correo.IsBodyHtml = true;
+
+            correo.Body = @"
+        <meta charset='UTF-8'>
+
+        <div style='font-family: Arial, sans-serif; background-color:#f5f5f5; padding:20px;'>
+
+            <div style='max-width:500px; margin:auto; background:white; 
+                        border-radius:10px; padding:30px; text-align:center; 
+                        box-shadow:0 4px 10px rgba(0,0,0,0.1);'>
+
+                <h2 style='color:#0d6efd;'>
+                    Nueva solicitud de teletrabajo
+                </h2>
+
+                <p style='color:#555; font-size:16px;'>
+                    Se ha registrado una nueva solicitud de teletrabajo 
+                    que requiere de su revisión.
+                </p>
+
+                <div style='background:#f8f9fa; padding:20px; 
+                            border-radius:8px; margin-top:20px; text-align:left;'>
+
+                    <p style='color:#333; font-size:15px;'>
+                        <strong>Empleado:</strong><br>
+                        " + nombreEmpleado + @"
+                    </p>
+
+                    <p style='color:#333; font-size:15px;'>
+                        <strong>Fecha de teletrabajo:</strong><br>
+                        " + fechaSolicitud.ToString("dd/MM/yyyy") + @"
+                    </p>
+
+                    <p style='color:#333; font-size:15px;'>
+                        <strong>Motivo:</strong><br>
+                        " + motivo + @"
+                    </p>
+
+                    <p style='color:#333; font-size:15px;'>
+                        <strong>Estado:</strong><br>
+                        <span style='color:#ffc107; font-weight:bold;'>
+                            Pendiente de aprobación
+                        </span>
+                    </p>
+
+                </div>
+
+                <p style='color:#555; font-size:14px; margin-top:25px;'>
+                    Por favor, ingrese al sistema para revisar 
+                    y gestionar esta solicitud.
+                </p>
+
+                <hr style='margin:30px 0;'>
+
+                <p style='font-size:12px; color:#aaa;'>
+                    © 2026 Sistema de Gestión de Teletrabajo
+                </p>
+
+            </div>
+
+        </div>";
+
+            correo.BodyEncoding = System.Text.Encoding.UTF8;
+            correo.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            SmtpClient smtp = new SmtpClient(
+                "smtp.gmail.com",
+                587
+            );
+
+            smtp.Credentials = new NetworkCredential(
+                "quesadabrenesantony@gmail.com",
+                "opnr bldz cpfs vzjz"
+            );
+
+            smtp.EnableSsl = true;
+
+            smtp.Send(correo);
+        }
+       
+
+
     }
+
 }
