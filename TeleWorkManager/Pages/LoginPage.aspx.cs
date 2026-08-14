@@ -68,6 +68,7 @@ namespace TeleWorkManager.Pages
                     Session["IdRol"] = Usuario.IdRol;
                     Session["Nombre"] = Usuario.Nombre;
                     Session["DepartamentoID"] = Usuario.DepartamentoID;
+                    Session["CorreoSupervisor"] = Usuario.CorreoSupervisor;
 
                     return true;
                 }
