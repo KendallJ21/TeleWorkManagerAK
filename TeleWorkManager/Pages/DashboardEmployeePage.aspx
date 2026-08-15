@@ -224,9 +224,109 @@
             <br />
 
             <br />
+            <div class="login-card p-4">
 
-            <br />
-        </div>
+                <h4 class="title mb-4">
+                    <i class="bi bi-clock-history"></i>
+                    Historial de Solicitudes
+                </h4>
+
+                <!-- FILTROS -->
+                <div class="row g-3 mb-4">
+
+                    <!-- AÑO -->
+                    <div class="col-md-4">
+                        <label class="form-label letra">
+                            <i class="bi bi-calendar3"></i>
+                            Año
+                        </label>
+
+                        <asp:DropDownList
+                            ID="ddlAnioHistorial"
+                            runat="server"
+                            CssClass="form-select">
+
+                            <asp:ListItem Value="2026">2026</asp:ListItem>
+                            <asp:ListItem Value="2025">2025</asp:ListItem>
+                            <asp:ListItem Value="2024">2024</asp:ListItem>
+
+                        </asp:DropDownList>
+                    </div>
+
+
+                    <!-- MES -->
+                    <div class="col-md-4">
+                        <label class="form-label letra">
+                            <i class="bi bi-calendar-month"></i>
+                            Mes
+                        </label>
+
+                        <asp:DropDownList
+                            ID="ddlMesHistorial"
+                            runat="server"
+                            CssClass="form-select">
+                            <asp:ListItem Value="1">Enero</asp:ListItem>
+                            <asp:ListItem Value="2">Febrero</asp:ListItem>
+                            <asp:ListItem Value="3">Marzo</asp:ListItem>
+                            <asp:ListItem Value="4">Abril</asp:ListItem>
+                            <asp:ListItem Value="5">Mayo</asp:ListItem>
+                            <asp:ListItem Value="6">Junio</asp:ListItem>
+                            <asp:ListItem Value="7">Julio</asp:ListItem>
+                            <asp:ListItem Value="8">Agosto</asp:ListItem>
+                            <asp:ListItem Value="9">Septiembre</asp:ListItem>
+                            <asp:ListItem Value="10">Octubre</asp:ListItem>
+                            <asp:ListItem Value="11">Noviembre</asp:ListItem>
+                            <asp:ListItem Value="12">Diciembre</asp:ListItem>
+
+                        </asp:DropDownList>
+                    </div>
+
+
+                    <!-- BOTÓN -->
+                    <div class="col-md-4 d-flex align-items-end">
+
+                        <asp:Button
+                            ID="btnFiltrarHistorial"
+                            runat="server"
+                            Text="Consultar historial"
+                            CssClass="btn btn-custom w-100" OnClick="btnFiltrarHistorial_Click" />
+
+                    </div>
+
+                </div>
+
+
+                <!-- INFORMACIÓN -->
+
+                <div class="history-info mb-4 text-white">
+
+                    <i class="bi bi-info-circle text-white"></i>
+
+                    Solicitudes registradas:
+
+        <strong>
+            <asp:Label
+                ID="lblTotalSolicitudes"
+                runat="server"
+                Text="8">
+            </asp:Label>
+        </strong>
+
+                
+
+
+                <!-- TABLA -->
+                <asp:GridView ID="dgv_historial" runat="server"
+    CssClass="table table-hover tabla-historial"
+    AutoGenerateColumns="true"
+    GridLines="None" OnRowDataBound="dgv_historial_RowDataBound">
+</asp:GridView>
+              
+
+              
+
+            </div>
+        
 
         <div class="modal fade" id="ModalRptDiasTele" tabindex="-1">
             <div class="modal-dialog modal-lg">

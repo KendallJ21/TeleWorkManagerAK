@@ -9,6 +9,7 @@ using System.Globalization;
 using System.IO;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace TeleWorkManager.Pages
 {
@@ -35,8 +36,18 @@ namespace TeleWorkManager.Pages
              
                 clrCalendario.SelectedDate = DateTime.Today;
                 clrCalendario.VisibleDate = DateTime.Today;
+                int mesActual = DateTime.Today.Month;
+                int mesAnnio = DateTime.Today.Year;
+                ddlMesHistorial.SelectedValue = mesActual.ToString();
+                ddlAnioHistorial.SelectedValue = mesActual.ToString();
+                ObtenerHistorialSolicitudes();
             }   
         }
+        protected void btnFiltrarHistorial_Click(object sender, EventArgs e)
+        {
+            ObtenerHistorialSolicitudes();
+        }
+
         protected void clrCalendario_VisibleMonthChanged(object sender, System.Web.UI.WebControls.MonthChangedEventArgs e)
         {
             ObtenerDiasTeletrabajo(DateTime.Today);
@@ -698,8 +709,34 @@ namespace TeleWorkManager.Pages
             tabla.AddCell(celda);
         }
 
+        public void ObtenerHistorialSolicitudes()
+        {
+            dgv_historial.DataSource = cDashboardEmployeeBLL.obtenerHistorial(Convert.ToInt32(Session["EmpleadoID"]), Convert.ToInt32(ddlAnioHistorial.SelectedValue),Convert.ToInt32( ddlMesHistorial.SelectedValue));
+            dgv_historial.DataBind();
+            lblTotalSolicitudes.Text=dgv_historial.Rows.Count.ToString();
+        }
+
+
         #endregion
 
-       
+        protected void dgv_historial_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string estado = DataBinder.Eval(e.Row.DataItem, "Estado")?.ToString();
+
+                if (estado == "Aprobada")
+                {
+                    e.Row.BackColor = System.Drawing.Color.FromArgb(220, 252, 231);
+                    e.Row.ForeColor = System.Drawing.Color.FromArgb(22, 101, 52);
+                }
+                else if (estado == "Rechazada")
+                {
+                    e.Row.BackColor = System.Drawing.Color.FromArgb(254, 226, 226);
+                    e.Row.ForeColor = System.Drawing.Color.FromArgb(153, 27, 27);
+                }
+            }
+        }
     }
 }

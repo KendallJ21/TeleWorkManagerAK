@@ -371,7 +371,22 @@ namespace BLL
             smtp.Send(correo);
         }
        
+        public DataSet obtenerHistorial(int EmpleadoID,int Annio,int mes)
+        {
+            vSQL = @"SELECT [SolicitudID] Solicitud
+                  ,[FechaTeletrabajo] [Fecha Teletrabajo]
+                  ,[Motivo]
+                  ,[EstadoID] Estado,
+                   E.Nombre Supervisor
+                  ,[ComentarioSupervisor] Comentario
+                  ,[FechaSolicitud] [Fecha Solicitud]
+                  ,[FechaRespuesta] [Fecha Respuesta]
+              FROM [dbo].[SolicitudesTeletrabajo] ST
+              LEFT JOIN Empleados E ON E.EmpleadoID = ST.SupervisorID
+              WHERE ST.EmpleadoID="+EmpleadoID+" and Year(FechaSolicitud)="+Annio+" and MONTH(FechaSolicitud)="+mes;
 
+            return cConexionBD.mObtenerDatos(vSQL);
+        }
 
     }
 
