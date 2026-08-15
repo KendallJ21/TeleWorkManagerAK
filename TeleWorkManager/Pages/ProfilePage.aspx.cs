@@ -2,8 +2,6 @@
 using ENT;
 using System;
 using System.Collections.Generic;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace TeleWorkManager.Pages
 {
@@ -21,6 +19,7 @@ namespace TeleWorkManager.Pages
                 }
 
                 TraerDatosPersonales();
+                ConfigurarBotonVolver();
             }
         }
 
@@ -30,6 +29,24 @@ namespace TeleWorkManager.Pages
         }
 
         #region Métodos
+        private void ConfigurarBotonVolver()
+        {
+            string rol = Session["IdRol"].ToString();
+
+            if (rol == "1")
+            {
+                lnkVolverPanel.NavigateUrl = "DashboardSupervisorPage.aspx";
+            }
+            else if (rol == "2")
+            {
+                lnkVolverPanel.NavigateUrl = "DashboardSupervisorPage.aspx";
+            }
+            else if (rol == "3")
+            {
+                lnkVolverPanel.NavigateUrl = "DashboardEmployeePage.aspx";
+            }
+        }
+
         public void TraerDatosPersonales()
         {
             List<CEmployeeENT> datos = cDashboardEmployeeBLL.TraerDatosPersonales(Convert.ToInt32(Session["EmpleadoID"]));

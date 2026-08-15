@@ -1,0 +1,249 @@
+﻿body {
+    background-color: #f5f6f8;
+    font-family: Arial, sans-serif;
+}
+
+.schedule-container {
+    padding: 30px;
+}
+
+
+/* ================================ */
+/* HEADER */
+/* ================================ */
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.schedule-icon {
+    width: 55px;
+    height: 55px;
+    background-color: #222831;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.schedule-header h2 {
+    margin: 0;
+    color: #222831;
+    font-weight: 700;
+}
+
+.schedule-header p {
+    margin: 5px 0 0;
+    color: #6c757d;
+}
+
+
+/* ================================ */
+/* BOTONES */
+/* ================================ */
+
+.btn-custom-dark {
+    background-color: #222831;
+    color: white;
+    border: 1px solid #222831;
+}
+
+    .btn-custom-dark:hover {
+        background-color: #171b20;
+        color: white;
+        border-color: #171b20;
+    }
+
+
+/* ================================ */
+/* CONFIGURACIÓN */
+/* ================================ */
+
+.configuration-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #343a40;
+}
+
+
+/* ================================ */
+/* INFO */
+/* ================================ */
+
+.info-card {
+    background-color: #eef1f4;
+    border-left: 5px solid #222831;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #343a40;
+}
+
+
+/* ================================ */
+/* CALENDARIO */
+/* ================================ */
+
+.calendar-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+}
+
+.calendar-programacion {
+    width: 100%;
+}
+
+    .calendar-programacion td {
+        cursor: pointer;
+        vertical-align: top;
+    }
+
+        .calendar-programacion td:hover {
+            background-color: #f1f3f5;
+        }
+
+
+/* ================================ */
+/* DÍAS */
+/* ================================ */
+
+.dia-teletrabajo {
+    display: block;
+    background-color: #198754;
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
+    margin-top: 5px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.dia-duplicado {
+    display: block;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
+    margin-top: 5px;
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* ================================ */
+/* RESUMEN */
+/* ================================ */
+
+.summary-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+}
+
+    .summary-card i {
+        color: #222831;
+        margin-right: 5px;
+    }
+
+    .summary-card strong {
+        color: #222831;
+    }
+
+
+/* ================================ */
+/* ACCIONES */
+/* ================================ */
+
+.action-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+
+/* ================================ */
+/* RESPONSIVE */
+/* ================================ */
+
+@media(max-width: 768px) {
+
+    .schedule-container {
+        padding: 15px;
+    }
+
+    .schedule-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+        .schedule-header .btn {
+            width: 100%;
+        }
+
+    .info-card {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .action-container {
+        flex-direction: column;
+    }
+
+        .action-container .btn {
+            width: 100%;
+        }
+}
+
+.btn-dia {
+    width: 90%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f3f5;
+    color: #222831;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+    .btn-dia:hover {
+        background-color: #dee2e6;
+        color: #222831;
+    }
+
+.dia-seleccionado {
+    background-color: #222831 !important;
+    color: white !important;
+}
+
+    .dia-seleccionado:hover {
+        background-color: #171b20 !important;
+        color: white !important;
+    }

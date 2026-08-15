@@ -26,9 +26,14 @@
                             Gestionar Solicitudes
                         </a>
 
-                        <a href="ProgramacionMensualPage.aspx" class="btn btn-custom me-2">
+                        <a href="MonthlySchedulePage.aspx" class="btn btn-custom me-2">
                             <i class="bi bi-calendar3"></i>
                             Programación Mensual
+                        </a>
+
+                        <a href="ProfilePage.aspx" class="btn btn-custom me-2">
+                            <i class="bi-person-gear"></i>
+                            Actualizar Información
                         </a>
 
                         <a href="LoginPage.aspx" class="btn btn-danger">

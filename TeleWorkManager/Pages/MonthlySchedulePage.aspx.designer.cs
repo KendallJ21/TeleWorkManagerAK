@@ -11,7 +11,7 @@ namespace TeleWorkManager.Pages
 {
 
 
-    public partial class ProfilePage
+    public partial class MonthlySchedulePage
     {
 
         /// <summary>
@@ -24,93 +24,84 @@ namespace TeleWorkManager.Pages
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lnkVolverPanel control.
+        /// lnkVolver control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkVolverPanel;
+        protected global::System.Web.UI.WebControls.HyperLink lnkVolver;
 
         /// <summary>
-        /// lblIdentificacion control.
+        /// ddlMes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdentificacion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
 
         /// <summary>
-        /// lblNombre control.
+        /// ddlAnio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAnio;
 
         /// <summary>
-        /// Lbl_Apellido1 control.
+        /// ddlEmpleado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Apellido1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmpleado;
 
         /// <summary>
-        /// Lbl_Apellido2 control.
+        /// btnCargar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Apellido2;
+        protected global::System.Web.UI.WebControls.Button btnCargar;
 
         /// <summary>
-        /// lblCorreo control.
+        /// lblMaxDiasSemana control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreo;
+        protected global::System.Web.UI.WebControls.Label lblMaxDiasSemana;
 
         /// <summary>
-        /// txt_telefono control.
+        /// CalendarProgramacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_telefono;
+        protected global::System.Web.UI.WebControls.Calendar CalendarProgramacion;
 
         /// <summary>
-        /// btnEditar control.
+        /// lblDiasSeleccionados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
+        protected global::System.Web.UI.WebControls.Label lblDiasSeleccionados;
 
         /// <summary>
-        /// lblDepartamento control.
+        /// btnPublicar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDepartamento;
-
-        /// <summary>
-        /// lblJefe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJefe;
+        protected global::System.Web.UI.WebControls.Button btnPublicar;
     }
 }

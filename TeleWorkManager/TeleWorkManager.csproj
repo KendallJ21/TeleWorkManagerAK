@@ -77,12 +77,14 @@
     <Content Include="CSS\DashboardEmployeePage.css" />
     <Content Include="CSS\DashboardSupervisorPage.css" />
     <Content Include="CSS\LoginPage.css" />
+    <Content Include="CSS\MonthlySchedulePage.css" />
     <Content Include="CSS\ProfilePage.css" />
     <Content Include="CSS\RequestManagmentPage.css" />
     <Content Include="Pages\DashboardAdminPage.aspx" />
     <Content Include="Pages\DashboardEmployeePage.aspx" />
     <Content Include="Pages\DashboardSupervisorPage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
+    <Content Include="Pages\MonthlySchedulePage.aspx" />
     <Content Include="Pages\ProfilePage.aspx" />
     <Content Include="Pages\RequestManagmentPage.aspx" />
     <Content Include="Web.config" />
@@ -93,7 +95,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\DashboardAdminPage.aspx.designer.cs">
-      <DependentUpon>DashboardAdminPage.aspx</DependentUpon>
+      <DependentUpon>DashboardAdminPage.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\DashboardEmployeePage.aspx.cs">
       <DependentUpon>DashboardEmployeePage.aspx</DependentUpon>
@@ -115,6 +117,13 @@
     </Compile>
     <Compile Include="Pages\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MonthlySchedulePage.aspx.cs">
+      <DependentUpon>MonthlySchedulePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MonthlySchedulePage.aspx.designer.cs">
+      <DependentUpon>MonthlySchedulePage.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProfilePage.aspx.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
