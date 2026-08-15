@@ -26,14 +26,9 @@
                             Gestionar Solicitudes
                         </a>
 
-                        <a href="ProgramacionMensualPage.aspx" class="btn btn-custom me-2">
+                        <a href="MonthlySchedulePage.aspx" class="btn btn-custom me-2">
                             <i class="bi bi-calendar3"></i>
                             Programación Mensual
-                        </a>
-                        
-                        <a href="DepartmentCalendarPage.aspx" class="btn btn-custom me-2">
-                            <i class="bi bi-calendar3"></i>
-                            Calendario del Departamento
                         </a>
 
                         <a href="ProfilePage.aspx" class="btn btn-custom me-2">

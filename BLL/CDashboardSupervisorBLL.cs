@@ -81,7 +81,7 @@ namespace BLL
             DateTime primerDiaMes = new DateTime(mes.Year, mes.Month, 1);
             DateTime primerDiaMesSiguiente = primerDiaMes.AddMonths(1);
 
-            vSQL = @"SELECT COUNT(1)
+            vSQL = @"SELECT COUNT(DISTINCT Fecha)
                         FROM dbo.ProgramacionTeletrabajo T1
                             INNER JOIN Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID
                         WHERE 
@@ -159,6 +159,32 @@ namespace BLL
             }
 
             return Colaboradores;
+        }
+
+        public List<CEmployeeENT> ObtenerTeletrabajadores(int DepartamentoID, DateTime mes)
+        {
+            vSQL = @"SELECT DISTINCT T2.Nombre, T2.Apellido1 FROM dbo.ProgramacionTeletrabajo T1
+                     INNER JOIN Empleados T2 ON T1.EmpleadoID = T2.EmpleadoID
+                     WHERE 
+                         T1.Fecha = '" + mes.ToString("yyyy-MM-dd") + @"'
+                         AND T2.DepartamentoID = " + DepartamentoID;
+
+            List<CEmployeeENT> cCEmployeeENT = new List<CEmployeeENT>();
+            DataSet response = cConexionBD.mObtenerDatos(vSQL);
+
+            foreach (DataTable table in response.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    CEmployeeENT c = new CEmployeeENT();
+
+                    c.nombre = row["Nombre"].ToString();
+                    c.apellido1 = row["Apellido1"].ToString();
+                    cCEmployeeENT.Add(c);
+                }
+            }
+
+            return cCEmployeeENT;
         }
     }
 }

@@ -44,6 +44,7 @@
     <Compile Include="CDashboardEmployeeBLL.cs" />
     <Compile Include="CDashboardSupervisorBLL.cs" />
     <Compile Include="CLoginBLL.cs" />
+    <Compile Include="CMonthlyScheduleBLL.cs" />
     <Compile Include="CRequestManagmentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

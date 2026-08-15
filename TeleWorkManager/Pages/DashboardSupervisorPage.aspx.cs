@@ -1,4 +1,5 @@
 ﻿using BLL;
+using ENT;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -42,6 +43,25 @@ namespace TeleWorkManager.Pages
             if (fechasTeletrabajo.Contains(e.Day.Date))
             {
                 e.Cell.BackColor = System.Drawing.Color.Green;
+            }
+
+            List<CEmployeeENT> empleados = cCDashboardSupervisorBLL.ObtenerTeletrabajadores(Convert.ToInt32(Session["DepartamentoID"]), e.Day.Date);
+
+            if (empleados.Count > 0)
+            {
+                e.Cell.BackColor = System.Drawing.Color.FromArgb(232, 245, 238);
+
+                foreach (var empleado in empleados)
+                {
+                    e.Cell.Controls.Add(
+                        new LiteralControl(
+                            "<br/><span class='empleado-teletrabajo'>" +
+                            empleado.nombre + " " +
+                            empleado.apellido1 +
+                            "</span>"
+                        )
+                    );
+                }
             }
         }
 

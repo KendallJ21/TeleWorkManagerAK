@@ -62,7 +62,7 @@
             <div class="text-center mt-3 letra">
                 <small>
                     <i class="bi bi-person-plus"></i>
-                    ¿Olvidaste tu contraseñna?
+                    ¿Olvidaste tu contraseña?
                      <a href="#" onclick="enviarCorreoCambio()">Presiona para recuperar</a>
                 </small>
             </div>
