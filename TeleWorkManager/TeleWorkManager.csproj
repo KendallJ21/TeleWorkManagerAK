@@ -73,11 +73,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\DashboardAdminPage.css" />
     <Content Include="CSS\DashboardEmployeePage.css" />
     <Content Include="CSS\DashboardSupervisorPage.css" />
     <Content Include="CSS\LoginPage.css" />
     <Content Include="CSS\ProfilePage.css" />
     <Content Include="CSS\RequestManagmentPage.css" />
+    <Content Include="Pages\DashboardAdminPage.aspx" />
     <Content Include="Pages\DashboardEmployeePage.aspx" />
     <Content Include="Pages\DashboardSupervisorPage.aspx" />
     <Content Include="Pages\LoginPage.aspx" />
@@ -86,6 +88,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\DashboardAdminPage.aspx.cs">
+      <DependentUpon>DashboardAdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DashboardAdminPage.aspx.designer.cs">
+      <DependentUpon>DashboardAdminPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DashboardEmployeePage.aspx.cs">
       <DependentUpon>DashboardEmployeePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
