@@ -50,7 +50,7 @@ namespace TeleWorkManager.Pages
                 }
                 else if (Convert.ToInt32(Session["IdRol"]) == 1)
                 {
-                    Response.Redirect("~/Pages/DashboardSupervisorPage.aspx");
+                    Response.Redirect("~/Pages/DashboardAdminPage.aspx");
                 }
             }
         }
