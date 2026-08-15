@@ -25,10 +25,10 @@
                         <p> Consulta y actualiza tu información personal. </p>
                     </div>
 
-                    <a href="DashboardEmployeePage.aspx" class="btn btn-custom-dark ms-auto">
+                    <asp:HyperLink ID="lnkVolverPanel" runat="server" CssClass="btn btn-custom-dark ms-auto">
                         <i class="bi bi-arrow-left"></i>
                         Volver al panel
-                    </a>
+                    </asp:HyperLink>                    
                 </div>
 
                 <div class="row g-4">

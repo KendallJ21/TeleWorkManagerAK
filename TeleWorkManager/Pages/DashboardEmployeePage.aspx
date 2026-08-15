@@ -25,7 +25,7 @@
 
                 <div class="mt-2">
                     <a href="ProfilePage.aspx" class="btn btn-custom me-2">
-                        <i class="bi bi-calendar3"></i>
+                        <i class="bi-person-gear"></i>
                         Actualizar Información
                     </a>
 

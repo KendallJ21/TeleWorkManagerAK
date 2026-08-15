@@ -137,7 +137,7 @@ namespace TeleWorkManager.Pages
             string script = @"Swal.fire({
                                     title: 'Aprobación Solicitud',
                                     text: 'Se ha aprobado la solicitud',
-                                    icon: 'sucess',
+                                    icon: 'success',
                                     focusConfirm: false,
                                     heightAuto: false,
                                     scrollbarPadding: false,
@@ -171,7 +171,7 @@ namespace TeleWorkManager.Pages
             string script = @"Swal.fire({
                                     title: 'Rechazo Solicitud',
                                     text: 'Se ha rechazado la solicitud',
-                                    icon: 'sucess',
+                                    icon: 'success',
                                     focusConfirm: false,
                                     heightAuto: false,
                                     scrollbarPadding: false,

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using ENT;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -23,13 +24,13 @@ namespace TeleWorkManager.Pages
 
                 txt_dashboard.Text = "Dashboard - " + Session["Nombre"].ToString();
 
-                ObtenerCantidadSolicitudesAprobadas();
-                ObtenerCantidadSolicitudesRechazadas();
-                ObtenerCantidadSolicitudesPendientes();
+                ObtenerCantidadSolicitudesAprobadas(DateTime.Today);
+                ObtenerCantidadSolicitudesRechazadas(DateTime.Today);
+                ObtenerCantidadSolicitudesPendientes(DateTime.Today);
                 ObtenerColaboradoresDepartamento();
                 ObtenerCantidadColaboradoresTeletrabajo();
-                ObtenerCantidadDiasProgramados();
-                ObtenerCumplimiento();
+                ObtenerCantidadDiasProgramados(DateTime.Today);
+                ObtenerCumplimiento(DateTime.Today);
                 ObtenerBarrasProgreso();
             }
 
@@ -43,12 +44,38 @@ namespace TeleWorkManager.Pages
             {
                 e.Cell.BackColor = System.Drawing.Color.Green;
             }
+
+            List<CEmployeeENT> empleados = cCDashboardSupervisorBLL.ObtenerTeletrabajadores(Convert.ToInt32(Session["DepartamentoID"]), e.Day.Date);
+
+            if (empleados.Count > 0)
+            {
+                e.Cell.BackColor = System.Drawing.Color.FromArgb(232, 245, 238);
+
+                foreach (var empleado in empleados)
+                {
+                    e.Cell.Controls.Add(
+                        new LiteralControl(
+                            "<br/><span class='empleado-teletrabajo'>" +
+                            empleado.nombre + " " +
+                            empleado.apellido1 +
+                            "</span>"
+                        )
+                    );
+                }
+            }
         }
 
         protected void clrCalendario_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
         {
             DateTime nuevoMes = e.NewDate;
             ObtenerDiasTeletrabajo(nuevoMes);
+
+            ObtenerCantidadSolicitudesAprobadas(nuevoMes);
+            ObtenerCantidadSolicitudesRechazadas(nuevoMes);
+            ObtenerCantidadSolicitudesPendientes(nuevoMes);
+            ObtenerCantidadDiasProgramados(nuevoMes);
+            ObtenerCumplimiento(nuevoMes);
+            ObtenerBarrasProgreso();
         }
 
         protected void btnVerEmpleados_Click(object sender, EventArgs e)
@@ -69,23 +96,23 @@ namespace TeleWorkManager.Pages
         }
        
         #region Métodos
-        public void ObtenerCantidadSolicitudesAprobadas()
+        public void ObtenerCantidadSolicitudesAprobadas(DateTime mes)
         {
-            aprobadas = Convert.ToInt32(cCDashboardSupervisorBLL.ObtenerCantidadSolicitudesAprobadas(Convert.ToInt32(Session["DepartamentoID"])));
+            aprobadas = Convert.ToInt32(cCDashboardSupervisorBLL.ObtenerCantidadSolicitudesAprobadas(Convert.ToInt32(Session["DepartamentoID"]), mes));
             lblAprobadas.Text = aprobadas.ToString();
             lblTotalAprobadas.Text = aprobadas.ToString();
         }
 
-        public void ObtenerCantidadSolicitudesRechazadas()
+        public void ObtenerCantidadSolicitudesRechazadas(DateTime mes)
         {
-            rechazadas = Convert.ToInt32(cCDashboardSupervisorBLL.ObtenerCantidadSolicitudesRechazadas(Convert.ToInt32(Session["DepartamentoID"])));
+            rechazadas = Convert.ToInt32(cCDashboardSupervisorBLL.ObtenerCantidadSolicitudesRechazadas(Convert.ToInt32(Session["DepartamentoID"]), mes));
             lblRechazadas.Text = rechazadas.ToString();
             lblTotalRechazadas.Text = rechazadas.ToString();
         }
 
-        public void ObtenerCantidadSolicitudesPendientes()
+        public void ObtenerCantidadSolicitudesPendientes(DateTime mes)
         {
-            pendientes = Convert.ToInt32(cCDashboardSupervisorBLL.ObtenerCantidadSolicitudesPendientes(Convert.ToInt32(Session["DepartamentoID"])));
+            pendientes = Convert.ToInt32(cCDashboardSupervisorBLL.ObtenerCantidadSolicitudesPendientes(Convert.ToInt32(Session["DepartamentoID"]), mes));
             lblSolicitudesPendientes.Text = pendientes.ToString();
             lblPendientes.Text = pendientes.ToString();
         }
@@ -100,15 +127,15 @@ namespace TeleWorkManager.Pages
             lblEmpleadosRemotos.Text = cCDashboardSupervisorBLL.ObtenerCantidadColaboradoresTeletrabajo(Convert.ToInt32(Session["DepartamentoID"]));
         }
 
-        public void ObtenerCantidadDiasProgramados()
+        public void ObtenerCantidadDiasProgramados(DateTime mes)
         {
-            lblTotalDias.Text = cCDashboardSupervisorBLL.ObtenerCantidadDiasProgramados(Convert.ToInt32(Session["DepartamentoID"]));
+            lblTotalDias.Text = cCDashboardSupervisorBLL.ObtenerCantidadDiasProgramados(Convert.ToInt32(Session["DepartamentoID"]), mes);
             lblDiasProgramados.Text = lblTotalDias.Text;
         }
 
-        public void ObtenerCumplimiento()
+        public void ObtenerCumplimiento(DateTime mes)
         {
-            lblCumplimiento.Text = cCDashboardSupervisorBLL.ObtenerCumplimiento(Convert.ToInt32(Session["DepartamentoID"]));
+            lblCumplimiento.Text = cCDashboardSupervisorBLL.ObtenerCumplimiento(Convert.ToInt32(Session["DepartamentoID"]), mes);
         }
 
         public void ObtenerBarrasProgreso()
