@@ -1,0 +1,370 @@
+﻿body {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color:black;
+}
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.container {
+    max-width: 1200px;
+}
+.section-title{
+    color:black
+}
+/* =========================
+   TÍTULOS
+========================= */
+.title {
+    color: black;
+    font-weight: bold;
+}
+
+.letra {
+    color: #eeeeee;
+}
+
+.section-title {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+    .section-title h3 {
+        color: #eeeeee;
+        font-weight: bold;
+    }
+
+    .section-title p {
+        color: #eeeeee;
+        opacity: 0.75;
+    }
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.login-card {
+    background-color: #222831;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Tarjetas de administración */
+
+.admin-card {
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    transition: 0.2s;
+}
+
+    .admin-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .admin-card h5 {
+        color: #eeeeee;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .admin-card p {
+        color: #eeeeee;
+        opacity: 0.75;
+        min-height: 48px;
+    }
+
+
+/* =========================
+   TARJETAS DE POLÍTICAS
+========================= */
+
+.policy-card {
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+    .policy-card h5 {
+        color: #eeeeee;
+        font-weight: bold;
+    }
+
+    .policy-card p {
+        color: #eeeeee;
+        opacity: 0.75;
+    }
+
+
+/* =========================
+   ICONOS
+========================= */
+
+.admin-icon,
+.policy-icon {
+    min-width: 55px;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: #393e46;
+    color: #00adb5;
+    font-size: 27px;
+}
+
+.icon-dashboard {
+    font-size: 40px;
+    color: #00adb5;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn-custom {
+    background-color: #00adb5;
+    color: white;
+    border: none;
+}
+
+    .btn-custom:hover {
+        background-color: #00adb5;
+        color: white;
+    }
+
+
+/* =========================
+   TABLA
+========================= */
+
+.admin-table-card {
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+    .admin-table-card h5 {
+        color: #eeeeee;
+        font-weight: bold;
+    }
+
+    .admin-table-card small {
+        color: #eeeeee !important;
+        opacity: 0.7;
+    }
+
+
+    /* Tabla Bootstrap */
+
+    .admin-table-card .table {
+        color: #eeeeee;
+        margin-bottom: 0;
+    }
+
+        .admin-table-card .table thead th {
+            background-color: #393e46;
+            color: #eeeeee;
+            border: none;
+            padding: 12px;
+        }
+
+        .admin-table-card .table tbody td {
+            background-color: #222831;
+            color: #eeeeee;
+            border-color: #393e46;
+            padding: 12px;
+        }
+
+    .admin-table-card .table-hover tbody tr:hover td {
+        background-color: #393e46;
+        color: #eeeeee;
+    }
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-control,
+.form-select {
+    background-color: #393e46;
+    color: #eeeeee;
+    border: 1px solid #555b63;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        background-color: #393e46;
+        color: #eeeeee;
+        border-color: #00adb5;
+        box-shadow: 0 0 0 0.2rem rgba(0, 173, 181, 0.25);
+    }
+
+    .form-control::placeholder {
+        color: #eeeeee;
+        opacity: 0.5;
+    }
+
+.input-group-text {
+    background-color: #393e46;
+    color: #eeeeee;
+    border-color: #555b63;
+}
+
+
+/* =========================
+   LABELS
+========================= */
+
+.form-label {
+    color: #eeeeee;
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.form-check {
+    margin-bottom: 8px;
+}
+
+    .form-check label {
+        color: #eeeeee;
+    }
+
+.form-check-input {
+    background-color: #393e46;
+    border-color: #777;
+}
+
+    .form-check-input:checked {
+        background-color: #00adb5;
+        border-color: #00adb5;
+    }
+
+
+/* =========================
+   MODALES
+========================= */
+
+.modal-content {
+    background-color: #222831;
+    color: #eeeeee;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    border-bottom: 1px solid #393e46;
+}
+
+.modal-footer {
+    border-top: 1px solid #393e46;
+}
+
+.dark-color {
+    background-color: #222831;
+}
+
+.dark-color-text {
+    color: #00adb5;
+}
+
+
+/* =========================
+   CALENDARIO
+========================= */
+
+.calendar {
+    color: #eeeeee;
+}
+
+    .calendar td,
+    .calendar th {
+        color: #eeeeee;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.calendar-full {
+    width: 100% !important;
+}
+
+    .calendar-full table {
+        width: 100% !important;
+    }
+
+    .calendar-full td,
+    .calendar-full th {
+        height: 65px;
+        text-align: center;
+    }
+
+
+/* =========================
+   ALERTAS
+========================= */
+
+.alert {
+    border: none;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress {
+    background: #393e46;
+}
+
+.progress-bar {
+    background: #00adb5;
+}
+
+
+/* =========================
+   BADGES
+========================= */
+
+.badge.bg-success {
+    background-color: #00adb5 !important;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .policy-card {
+        flex-direction: column;
+    }
+
+    .admin-card,
+    .policy-card {
+        padding: 20px;
+    }
+}
+.section-title {
+    color: black
+}
