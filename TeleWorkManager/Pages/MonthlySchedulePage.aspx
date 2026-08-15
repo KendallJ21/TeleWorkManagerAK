@@ -109,13 +109,42 @@
             <!-- CALENDARIO -->
             <!-- ================================= -->
             <div class="calendar-card">
-                <asp:Calendar ID="CalendarProgramacion" runat="server" CssClass="calendar-programacion" Width="100%" Height="600px" OnDayRender="CalendarProgramacion_DayRender" OnSelectionChanged="CalendarProgramacion_SelectionChanged">
-                    <TitleStyle BackColor="#222831" ForeColor="White" Font-Bold="true" Height="50px" />
-                    <DayHeaderStyle BackColor="#f1f3f5" ForeColor="#222831" Font-Bold="true" Height="40px" />
-                    <DayStyle BackColor="White" ForeColor="#343a40" Font-Size="10pt" />
-                    <SelectedDayStyle BackColor="#198754" ForeColor="White" Font-Bold="true" />
-                    <TodayDayStyle BackColor="#e9ecef" ForeColor="#222831" Font-Bold="true" />
-                </asp:Calendar>
+               <asp:Calendar ID="CalendarProgramacion"
+    runat="server"
+    CssClass="calendar-programacion"
+    Width="100%"
+    Height="600px"
+    OnDayRender="CalendarProgramacion_DayRender"
+    OnSelectionChanged="CalendarProgramacion_SelectionChanged">
+
+    <TitleStyle
+        BackColor="#222831"
+        ForeColor="White"
+        Font-Bold="true"
+        Height="50px" />
+
+    <DayHeaderStyle
+        BackColor="#f1f3f5"
+        ForeColor="#222831"
+        Font-Bold="true"
+        Height="40px" />
+
+    <DayStyle
+        BackColor="White"
+        ForeColor="#343a40"
+        Font-Size="10pt" />
+
+    <SelectedDayStyle
+        BackColor="#198754"
+        ForeColor="White"
+        Font-Bold="true" />
+
+    <TodayDayStyle
+        BackColor="#e9ecef"
+        ForeColor="#222831"
+        Font-Bold="true" />
+
+</asp:Calendar>
             </div>
 
             <!-- ================================= -->
