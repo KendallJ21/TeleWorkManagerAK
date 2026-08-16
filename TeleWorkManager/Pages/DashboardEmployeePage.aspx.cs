@@ -3,7 +3,6 @@ using ENT;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -17,6 +16,7 @@ namespace TeleWorkManager.Pages
     {
         private CDashboardEmployeeBLL  cDashboardEmployeeBLL = new CDashboardEmployeeBLL();
         private List<DateTime> fechasTeletrabajo = new List<DateTime>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ObtenerDiasTeletrabajo(DateTime.Today);
@@ -43,6 +43,7 @@ namespace TeleWorkManager.Pages
                 ObtenerHistorialSolicitudes();
             }   
         }
+        
         protected void btnFiltrarHistorial_Click(object sender, EventArgs e)
         {
             ObtenerHistorialSolicitudes();
@@ -52,6 +53,7 @@ namespace TeleWorkManager.Pages
         {
             ObtenerDiasTeletrabajo(DateTime.Today);
         }
+
         protected void clrCalendario_SelectionChanged(object sender, EventArgs e)
         {
             ObtenerDiasTeletrabajo(DateTime.Today);
@@ -199,11 +201,12 @@ namespace TeleWorkManager.Pages
                 script,
                 true);
         }
+        
         protected void btnReportePDF_Click(object sender, EventArgs e)
         {
             GenerarPDF();
-
         }
+
         #region Métodos
         public void ObtenerDatosDíasAsignados()
         {
@@ -243,6 +246,7 @@ namespace TeleWorkManager.Pages
             txtFecha.Text = String.Empty;
             clrCalendario.SelectedDate = DateTime.Now;
         }
+        
         public void ObtenerDiasTeletrabajo(DateTime mes)
         {
             fechasTeletrabajo = cDashboardEmployeeBLL.ObtenerDiasTeletrabajo(Convert.ToInt32(Session["DepartamentoID"]), mes);
@@ -662,11 +666,8 @@ namespace TeleWorkManager.Pages
                 HttpContext.Current.Response.End();
             }
         }
-        private void AgregarCeldaHeader(
-            PdfPTable tabla,
-            string texto,
-            Font fuente,
-            BaseColor color)
+        
+        private void AgregarCeldaHeader(PdfPTable tabla, string texto, Font fuente, BaseColor color)
         {
             PdfPCell celda = new PdfPCell(
                 new Phrase(texto, fuente)
@@ -683,12 +684,8 @@ namespace TeleWorkManager.Pages
 
             tabla.AddCell(celda);
         }
-        private void AgregarCelda(
-                PdfPTable tabla,
-                string texto,
-                Font fuente,
-                BaseColor fondo,
-                int alineacion)
+        
+        private void AgregarCelda(PdfPTable tabla, string texto, Font fuente, BaseColor fondo, int alineacion)
         {
             PdfPCell celda = new PdfPCell(
                 new Phrase(texto, fuente)
@@ -715,13 +712,10 @@ namespace TeleWorkManager.Pages
             dgv_historial.DataBind();
             lblTotalSolicitudes.Text=dgv_historial.Rows.Count.ToString();
         }
-
-
         #endregion
 
         protected void dgv_historial_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
-
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 string estado = DataBinder.Eval(e.Row.DataItem, "Estado")?.ToString();
