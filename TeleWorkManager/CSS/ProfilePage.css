@@ -1,181 +1,337 @@
-﻿body {
-    background-color: #f5f6f8;
-    font-family: Arial, sans-serif;
+﻿/* =========================================================
+   GENERAL
+========================================================= */
+
+body {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
 }
 
 .profile-container {
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 1400px;
 }
 
-/* HEADER */
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
 
 .profile-header {
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 25px 30px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
 }
 
-    .profile-header h2 {
-        margin: 0;
-        font-weight: 700;
-        color: #222831;
-    }
-
-    .profile-header p {
-        margin: 5px 0 0;
-        color: #6c757d;
-    }
-
 .profile-icon {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background-color: #222831;
-    color: white;
-    font-size: 25px;
+    background-color: #393e46;
+    color: #00adb5;
+    border-radius: 15px;
+    font-size: 30px;
+    margin-right: 18px;
+}
+
+.profile-header h2 {
+    color: #eeeeee;
+    font-weight: bold;
+    margin: 0;
+}
+
+.profile-header p {
+    color: #eeeeee;
+    opacity: 0.7;
+    margin: 5px 0 0;
 }
 
 
-/* CARD */
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.btn-custom-dark {
+    background-color: #00adb5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+    .btn-custom-dark:hover {
+        background-color: #00adb5;
+        color: white;
+    }
+
+
+/* =========================================================
+   TARJETA PERFIL
+========================================================= */
 
 .profile-card {
-    background-color: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background-color: #222831;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
 
+
+/* =========================================================
+   ENCABEZADO DE TARJETAS
+========================================================= */
+
 .card-header-custom {
+    background-color: #393e46;
+    color: #eeeeee;
     padding: 18px 25px;
-    border-bottom: 1px solid #eee;
-    font-size: 18px;
-    font-weight: 600;
-    color: #222831;
+    border-bottom: 1px solid #555b63;
+    font-size: 17px;
+    font-weight: bold;
 }
 
     .card-header-custom i {
+        color: #00adb5;
+        font-size: 20px;
         margin-right: 8px;
     }
+
+
+/* =========================================================
+   CUERPO DE TARJETAS
+========================================================= */
 
 .card-body-custom {
     padding: 25px;
 }
 
 
-    /* CAMPOS */
+    /* =========================================================
+   LABELS
+========================================================= */
 
     .card-body-custom label {
         display: block;
-        font-size: 13px;
-        color: #6c757d;
-        margin-bottom: 7px;
-        font-weight: 600;
+        color: #eeeeee;
+        font-weight: bold;
+        margin-bottom: 8px;
     }
 
+
+/* =========================================================
+   CAMPOS DE INFORMACIÓN
+========================================================= */
+
 .info-field {
+    background-color: #393e46;
+    border: 1px solid #555b63;
+    border-radius: 8px;
+    min-height: 45px;
+    padding: 10px 14px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 11px 14px;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    color: #343a40;
+    color: #eeeeee;
 }
 
     .info-field i {
-        color: #6c757d;
+        color: #00adb5;
+        font-size: 18px;
+        margin-right: 10px;
+        min-width: 20px;
+        text-align: center;
     }
 
 
-/* BOTONES */
+    /* =========================================================
+   LABELS ASP.NET
+========================================================= */
 
-.card-actions {
-    margin-top: 25px;
-    display: flex;
-    justify-content: flex-end;
+    .info-field span {
+        color: #eeeeee;
+    }
+
+
+/* =========================================================
+   INPUT PERFIL
+========================================================= */
+
+.input-profile {
+    width: 100%;
+    background-color: transparent;
+    color: #eeeeee;
+    border: none;
+    outline: none;
 }
 
+    .input-profile::placeholder {
+        color: #eeeeee;
+        opacity: 0.5;
+    }
 
-/* SEGURIDAD */
+    .input-profile:focus {
+        outline: none;
+    }
+
+
+/* =========================================================
+   BOTÓN ACTUALIZAR
+========================================================= */
+
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+    .card-actions .btn {
+        padding: 10px 22px;
+    }
+
+
+/* =========================================================
+   SEGURIDAD
+========================================================= */
 
 .security-card {
-    background-color: white;
+    background-color: #222831;
+    border-radius: 15px;
     padding: 30px;
-    border-radius: 14px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .security-icon {
-    width: 65px;
-    height: 65px;
-    margin: 0 auto 15px;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: #eef1f4;
-    color: #222831;
-    font-size: 28px;
+    background-color: #393e46;
+    color: #00adb5;
+    font-size: 32px;
 }
 
 .security-card h4 {
-    font-weight: 700;
-    color: #222831;
+    color: #eeeeee;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .security-card p {
-    color: #6c757d;
-    font-size: 14px;
+    color: #eeeeee;
+    opacity: 0.7;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
+.security-card .btn {
+    width: 100%;
+}
 
-/* ESTADO */
+
+/* =========================================================
+   ESTADO DE CUENTA
+========================================================= */
 
 .status-card {
-    background-color: white;
-    padding: 18px;
-    border-radius: 14px;
+    background-color: #222831;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .status-icon {
-    font-size: 30px;
-    color: #198754;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #393e46;
+    color: #00adb5;
+    font-size: 25px;
 }
 
 .status-card strong {
-    color: #343a40;
+    color: #eeeeee;
+    font-size: 16px;
 }
 
 .status-card p {
+    color: #eeeeee;
+    opacity: 0.7;
     margin: 3px 0 0;
-    font-size: 13px;
-    color: #6c757d;
 }
 
-.btn-custom-dark {
-    background-color: #222831;
-    color: white;
-    border: 1px solid #222831;
+
+/* =========================================================
+   SWEET ALERT
+========================================================= */
+
+.swal2-popup {
+    background-color: #222831 !important;
+    color: #eeeeee !important;
+    border-radius: 15px !important;
 }
 
-    .btn-custom-dark:hover {
-        background-color: #171b20;
-        color: white;
-        border-color: #171b20;
+.swal2-title {
+    color: #eeeeee !important;
+}
+
+.swal2-html-container {
+    color: #eeeeee !important;
+}
+
+.swal2-confirm {
+    background-color: #00adb5 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .profile-container {
+        padding: 15px;
     }
 
-    .btn-custom-dark:focus {
-        box-shadow: 0 0 0 0.2rem rgba(34, 40, 49, 0.25);
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
     }
+
+    .profile-icon {
+        margin-right: 0;
+    }
+
+    .profile-header .btn {
+        width: 100%;
+    }
+
+    .card-body-custom {
+        padding: 20px;
+    }
+
+    .card-actions {
+        justify-content: stretch;
+    }
+
+        .card-actions .btn {
+            width: 100%;
+        }
+}
