@@ -35,7 +35,7 @@ namespace TeleWorkManager.Pages
 
             if (rol == "1")
             {
-                lnkVolverPanel.NavigateUrl = "DashboardSupervisorPage.aspx";
+                lnkVolverPanel.NavigateUrl = "DashboardAdminPage.aspx";
             }
             else if (rol == "2")
             {

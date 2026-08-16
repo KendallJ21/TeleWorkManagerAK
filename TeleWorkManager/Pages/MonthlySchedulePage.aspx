@@ -22,18 +22,17 @@
                     <div class="schedule-icon">
                         <i class="bi bi-calendar-plus"></i>
                     </div>
-                <div>
 
-                <h2> Programación Mensual </h2>
-
-                <p> Asigna y administra el teletrabajo de los colaboradores. </p>
-            </div>
-        </div>
+                    <div>
+                        <h2> Programación Mensual </h2>
+                        <p> Asigna y administra el teletrabajo de los colaboradores. </p>
+                    </div>
+                </div>
 
                 <asp:HyperLink ID="lnkVolver" runat="server" NavigateUrl="DashboardSupervisorPage.aspx" CssClass="btn btn-custom-dark">
-                <i class="bi bi-arrow-left"></i>
-                Volver al panel
-            </asp:HyperLink>
+                    <i class="bi bi-arrow-left"></i>
+                    Volver al panel
+                </asp:HyperLink>
             </div>
         
             <!-- ================================= -->
@@ -110,41 +109,41 @@
             <!-- ================================= -->
             <div class="calendar-card">
                <asp:Calendar ID="CalendarProgramacion"
-    runat="server"
-    CssClass="calendar-programacion"
-    Width="100%"
-    Height="600px"
-    OnDayRender="CalendarProgramacion_DayRender"
-    OnSelectionChanged="CalendarProgramacion_SelectionChanged">
+                    runat="server"
+                    CssClass="calendar-programacion"
+                    Width="100%"
+                    Height="600px"
+                    OnDayRender="CalendarProgramacion_DayRender"
+                    OnSelectionChanged="CalendarProgramacion_SelectionChanged">
 
-    <TitleStyle
-        BackColor="#222831"
-        ForeColor="White"
-        Font-Bold="true"
-        Height="50px" />
+                    <TitleStyle
+                        BackColor="#222831"
+                        ForeColor="White"
+                        Font-Bold="true"
+                        Height="50px" />
 
-    <DayHeaderStyle
-        BackColor="#f1f3f5"
-        ForeColor="#222831"
-        Font-Bold="true"
-        Height="40px" />
+                    <DayHeaderStyle
+                        BackColor="#f1f3f5"
+                        ForeColor="#222831"
+                        Font-Bold="true"
+                        Height="40px" />
 
-    <DayStyle
-        BackColor="White"
-        ForeColor="#343a40"
-        Font-Size="10pt" />
+                    <DayStyle
+                        BackColor="White"
+                        ForeColor="#343a40"
+                        Font-Size="10pt" />
 
-    <SelectedDayStyle
-        BackColor="#198754"
-        ForeColor="White"
-        Font-Bold="true" />
+                    <SelectedDayStyle
+                        BackColor="#198754"
+                        ForeColor="White"
+                        Font-Bold="true" />
 
-    <TodayDayStyle
-        BackColor="#e9ecef"
-        ForeColor="#222831"
-        Font-Bold="true" />
+                    <TodayDayStyle
+                        BackColor="#e9ecef"
+                        ForeColor="#222831"
+                        Font-Bold="true" />
 
-</asp:Calendar>
+                </asp:Calendar>
             </div>
 
             <!-- ================================= -->
