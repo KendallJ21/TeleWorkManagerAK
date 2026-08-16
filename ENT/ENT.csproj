@@ -41,14 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CDepartamentoENT.cs" />
+    <Compile Include="CEmployeeAdminENT.cs" />
     <Compile Include="CEmployeeENT.cs" />
     <Compile Include="CEnvioCorreoENT.cs" />
     <Compile Include="CNotificacionesENT.cs" />
+    <Compile Include="CPoliticaTeletrabajoENT.cs" />
     <Compile Include="CRptDiasTeletrabajoENT.cs" />
     <Compile Include="CLoginENT.cs" />
     <Compile Include="CRptSolicitudENT.cs" />
     <Compile Include="CSolicitudENT.cs" />
     <Compile Include="CSolicitudesENT.cs" />
+    <Compile Include="CSupervisorENT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
